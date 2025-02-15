@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
+import ProductViewModal from './ProductViewModal';
 
 const containerVariants = {
     hidden: { opacity: 0, scale: 0.8 },
@@ -10,8 +11,8 @@ const containerVariants = {
 
 const ProductCart = ({ product }) => {
     const [openProductViewModal, setOpenProductViewModal] = useState(false);
+    const [selectedProductViewModal, setSelectedProductViewModal] = useState(null);
     const btnLoader = false;
-    const [selectedProductViewModal, setSelectedProductViewModal] = useState("");
     const isAvailable = product.quantity > 0;
 
     const handleProductViewModal = (product) => {
@@ -23,7 +24,7 @@ const ProductCart = ({ product }) => {
         <div className="h-full">
             <motion.div
                 key={product.id}
-                className="bg-white shadow-lg rounded-lg overflow-hidden transition-shadow-lg hover:shadow-xl h-full flex flex-col"
+                className="bg-white shadow-lg rounded-lg overflow-hidden transition-shadow-lg hover:shadow-xl h-full flex-col"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -32,7 +33,7 @@ const ProductCart = ({ product }) => {
                     <img className="cursor-pointer w-full transition-transform duration-300 transform hover:scale-105" src={product.image} alt={product.name} />
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
-                    <h2 onClick={() => {product}} className="text-xl font-semibold text-gray-800">{product.name}</h2>
+                    <h2 className="text-xl font-semibold text-gray-800">{product.name}</h2>
                     <div className='min-h-20 max-h-20 overflow-hidden'>
                         <p className="text-gray-600 text-sm mt-2 flex-grow">{product.description}</p>
                     </div>
@@ -47,7 +48,7 @@ const ProductCart = ({ product }) => {
                                 <span className="text-xl font-semibold text-gray-800">${product.price.toFixed(2)}</span>
                             )}
                         </div>
-                        <button className={`px-4 py-2 text-white font-semibold rounded-lg ${isAvailable ? "bg-green-500 hover:bg-green-600 cursor-pointer" : "bg-red-400 opacity-75 cursor-not-allowed"}`} disabled={!isAvailable || btnLoader}>
+                        <button className={`px-4 py-2 text-white font-semibold rounded-lg ${isAvailable ? "bg-blue-500 hover:bg-blue-600 cursor-pointer" : "bg-red-400 opacity-75 cursor-not-allowed"}`} disabled={!isAvailable || btnLoader}>
                             <div className='flex items-center justify-center'>
                                 <FaShoppingCart className="inline-block mr-2" />
                                 {isAvailable ? "Add to Cart" : "Out of Stock"}
@@ -56,6 +57,14 @@ const ProductCart = ({ product }) => {
                     </div>
                 </div>
             </motion.div>
+            {selectedProductViewModal && (
+                <ProductViewModal
+                    isOpen={openProductViewModal}
+                    onClose={() => setOpenProductViewModal(false)}
+                    product={selectedProductViewModal}
+                    isAvailable={isAvailable}
+                />
+            )}
         </div>
     );
 }
