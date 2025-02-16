@@ -1,33 +1,16 @@
 import { FaExclamationTriangle } from 'react-icons/fa';
 import ProductCard from './ProductCart';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchProducts } from '../store/actions';
 
 const Products = () => {
-    const loading = false;
-    const errorMessage = "";
-    const products = [
-        {
-            id: "123e4567-e89b-12d3-a456-426614174000",
-            name: "Iphone Xs max",
-            image: "https://placehold.co/600x400",
-            description: "Experience the latest in mobile technology with advanced cameras, powerful processing, and an all-day battery.",
-            quantity: 1,
-            price: 1450.0,
-            discount: 10.0,
-            specialPrice: 1305.0,
-        },
-        {
-            id: "123e4567-e89b-12d3-a456-426614174001",
-            name: "MacBook Air M2s",
-            image: "https://placehold.co/600x400",
-            description: "Ultra-thin laptop with Apple's M2 chip, providing fast performance in a lightweight, portable design.",
-            quantity: 0,
-            price: 2550.0,
-            discount: 20.0,
-            specialPrice: 2040.0,
-        }
-    ];
-
+    const { products, loading, errorMessage } = useSelector((state) => state.product);
+    const dispatch = useDispatch();
     
+    useEffect(() => {
+        dispatch(fetchProducts());
+    }, [dispatch]);
 
     return (
         <div className="lg:px-14 sm:px-8 px-4 py-14 2xl:w-[90%] 2xl:mx-auto">

@@ -35,8 +35,8 @@ function ProductViewModal({ isOpen, onClose, product, isAvailable }) {
             >
               <DialogPanel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white text-left align-middle transition-all">
                 <div >
-                  <div className='w-full overflow-hidden aspect-[3/2]' >
-                    <img className="cursor-pointer w-full transition-transform duration-300 transform hover:scale-105 rounded-t-lg " src={product.image} alt={product.name} />
+                  <div className='w-full overflow-hidden aspect-[3/2] relative' >
+                    <img className="w-full h-full object-cover transition-transform duration-300 transform hover:scale-105" src={product.image} alt={product.name} />
                   </div>
                   <div className='p-6 flex flex-col gap-4'>
                     <DialogTitle

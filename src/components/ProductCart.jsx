@@ -29,8 +29,8 @@ const ProductCart = ({ product }) => {
                 initial="hidden"
                 animate="visible"
             >
-                <div onClick={() => handleProductViewModal(product)} className='w-full overflow-hidden aspect-[3/2]' >
-                    <img className="cursor-pointer w-full transition-transform duration-300 transform hover:scale-105" src={product.image} alt={product.name} />
+                <div onClick={() => handleProductViewModal(product)} className='w-full overflow-hidden aspect-[3/2] relative'>
+                    <img className="cursor-pointer w-full h-full object-cover transition-transform duration-300 transform hover:scale-105" src={product.image} alt={product.name} />
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                     <h2 className="text-xl font-semibold text-gray-800">{product.name}</h2>
