@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^2.5.1",
     "@tailwindcss/cli": "^4.0.5",
     "@tailwindcss/vite": "^4.0.5",
+    "axios": "^1.7.9",
     "framer-motion": "^12.4.3",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
