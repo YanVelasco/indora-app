@@ -1,4 +1,4 @@
-import Products from "./assets/components/Products"
+import Products from "./components/Products"
 
 function App() {
 
