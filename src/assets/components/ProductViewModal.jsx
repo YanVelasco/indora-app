@@ -79,7 +79,7 @@ function ProductViewModal({ isOpen, onClose, product, isAvailable }) {
                     <p className="text-sm text-gray-500 mt-4">{product.description}</p>
 
                     <div className="mt-4 flex items-center justify-end">
-                    <Button className="w-22 rounded-lg justify-end py-3 text-white font-semibold bg-gray-800 cursor-pointer" onClick={onClose}>
+                    <Button className="w-22 rounded-lg justify-end py-3 text-white font-semibold bg-blue-500 hover:bg-blue-600 cursor-pointer" onClick={onClose}>
                       Close
                     </Button>
                     </div>
