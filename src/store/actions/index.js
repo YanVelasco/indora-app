@@ -16,7 +16,7 @@ export const fetchProducts = (queryString) => async (dispatch) => {
      });
      dispatch({ type: "IS_SUCCESS" });
   } catch (error) {
-    console.log('Error:', error);
-    dispatch({ type: "IS_ERROR", payload: error?.response?.data?.message || "Failed to fetch products" });
+    const errorMessage = error?.response?.data || "Failed to fetch products";
+    dispatch({ type: "IS_ERROR", payload: errorMessage });
   }
 };
