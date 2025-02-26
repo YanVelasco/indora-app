@@ -16,13 +16,13 @@ export const useProductFilter = () => {
         params.set('pageNumber', currentPage - 1);
 
         const sortOrder = searchParams.get('sortBy') || 'asc';
-        const categoryParams = searchParams.get('category') || null;
+        const categoryParams = searchParams.get('categoryName') || null;
         const keyword = searchParams.get('keyword') || null;
         params.set('sortBy', 'price');
         params.set('sortOrder', sortOrder);
 
         if (categoryParams) {
-            params.set('category', categoryParams);
+            params.set('categoryName', categoryParams);
         }
 
         if (keyword) {

@@ -8,7 +8,8 @@ export const Filter = () => {
         { categoryId: 1, categoryIName: 'Electronics' },
         { categoryId: 2, categoryIName: 'Books' },
         { categoryId: 3, categoryIName: "Men's Clothing" },
-        { categoryId: 4, categoryIName: "Women's Clothing" }
+        { categoryId: 4, categoryIName: "Women's Clothing" },
+        { categoryId:5 , categoryIName: "Shoes" }
     ];
 
     const location = useLocation();
