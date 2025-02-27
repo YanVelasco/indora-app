@@ -6,6 +6,8 @@ import { Filter } from './Filter';
 import { useProductFilter } from './userProductFilter';
 import { useEffect } from 'react';
 import { fetchCategories } from '../store/actions';
+import { Loader } from './Loader';
+
 
 const Products = () => {
     const { products, categories } = useSelector((state) => state.product);
@@ -22,9 +24,7 @@ const Products = () => {
         <div className="lg:px-14 sm:px-8 px-4 py-14 2xl:w-[90%] 2xl:mx-auto">
             <Filter categories={categories || []} />
             {isLoading && (
-                <div className="flex items-center justify-center h-screen">
-                    <p>Loading...</p>
-                </div>
+                    <Loader text={"Fetching products..."}/>
             )}
             {!isLoading && errorMessage && (
                 <div className="flex items-center justify-center h-screen">
