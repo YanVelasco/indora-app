@@ -3,15 +3,7 @@ import { useEffect, useState } from 'react';
 import { FiArrowDown, FiArrowUp, FiRefreshCcw, FiSearch } from 'react-icons/fi';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 
-export const Filter = () => {
-    const categories = [
-        { categoryId: 1, categoryIName: 'Electronics' },
-        { categoryId: 2, categoryIName: 'Books' },
-        { categoryId: 3, categoryIName: "Men's Clothing" },
-        { categoryId: 4, categoryIName: "Women's Clothing" },
-        { categoryId:5 , categoryIName: "Shoes" }
-    ];
-
+export const Filter = ({ categories }) => {
     const location = useLocation();
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
@@ -21,7 +13,7 @@ export const Filter = () => {
     const [category, setCategory] = useState('all');
     const [sortOrder, setSortOrder] = useState('asc');
     const [searchTerm, setSearchTerm] = useState('');
-    
+
     useEffect(() => {
         const currentCategory = params.get('category') || 'all';
         const currentSortOrder = params.get('sortBy') || 'asc';
@@ -64,7 +56,7 @@ export const Filter = () => {
             }
             navigate(`${pathName}?${params.toString()}`);
         }, 700);
-    
+
         return () => clearTimeout(handler);
     }, [searchTerm, navigate, pathName]);
 
@@ -95,8 +87,8 @@ export const Filter = () => {
                     >
                         <MenuItem value='all'>All</MenuItem>
                         {categories.map((category) => (
-                            <MenuItem key={category.categoryId} value={category.categoryIName}>
-                                {category.categoryIName}
+                            <MenuItem key={category.id} value={category.name}>
+                                {category.name}
                             </MenuItem>
                         ))}
                     </Select>
@@ -107,8 +99,8 @@ export const Filter = () => {
                         Sort by
                         {sortOrder === 'asc' ? (
                             <FiArrowUp size={20} />
-                        ) :(
-                            <FiArrowDown size={20}/>
+                        ) : (
+                            <FiArrowDown size={20} />
                         )}
                     </Button>
                 </Tooltip>

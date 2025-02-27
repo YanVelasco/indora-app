@@ -1,9 +1,7 @@
 const initialState = {
     products: [],
-    categories: null,
+    categories: [],
     pagination: {},
-    loading: false,
-    errorMessage: ''
 };
 
 export const ProductReducer = (state = initialState, action) => {
@@ -11,8 +9,6 @@ export const ProductReducer = (state = initialState, action) => {
         case "FETCH_PRODUCTS_REQUEST":
             return {
                 ...state,
-                loading: true,
-                errorMessage: ''
             };
         case "FETCH_PRODUCTS_SUCCESS":
             return {
@@ -26,18 +22,11 @@ export const ProductReducer = (state = initialState, action) => {
                     totalPages: action.totalPages,
                     lastPage: action.lastPage
                 },
-                loading: false
             };
-        case "FETCH_PRODUCTS_FAILURE":
+        case "FETCH_CATEGORIES_SUCCESS":
             return {
                 ...state,
-                loading: false,
-                errorMessage: action.error
-            };
-        case "FETCH_CATEGORIES":
-            return {
-                ...state,
-                categories: action.payload
+                categories: action.payload,
             };
         default:
             return state;
