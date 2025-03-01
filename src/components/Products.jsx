@@ -7,10 +7,10 @@ import { useProductFilter } from './userProductFilter';
 import { useEffect } from 'react';
 import { fetchCategories } from '../store/actions';
 import { Loader } from './Loader';
-
+import { CustomPagination } from './CustomPagination';
 
 const Products = () => {
-    const { products, categories } = useSelector((state) => state.product);
+    const { products, categories, pagination } = useSelector((state) => state.product);
     const { isLoading, errorMessage } = useSelector((state) => state.errors);
     const dispatch = useDispatch();
 
@@ -24,7 +24,7 @@ const Products = () => {
         <div className="lg:px-14 sm:px-8 px-4 py-14 2xl:w-[90%] 2xl:mx-auto">
             <Filter categories={categories || []} />
             {isLoading && (
-                    <Loader text={"Fetching products..."}/>
+                <Loader text={"Fetching products..."} />
             )}
             {!isLoading && errorMessage && (
                 <div className="flex items-center justify-center h-screen">
@@ -39,6 +39,9 @@ const Products = () => {
                             <ProductCard key={product.id} product={product} />
                         )}
                     </div>
+                    <CustomPagination
+                        numberOfPages={pagination?.totalPages || 0}
+                    />
                 </div>
             )}
         </div>
