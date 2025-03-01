@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Divider } from '@mui/material';
 import { MdClose, MdDone } from 'react-icons/md';
 import Status from './Status';
+import { truncateText } from './truncateText';
 
 function ProductViewModal({ isOpen, onClose, product, isAvailable }) {
   return (
@@ -41,7 +42,7 @@ function ProductViewModal({ isOpen, onClose, product, isAvailable }) {
                   <div className='p-6 flex flex-col gap-4'>
                     <DialogTitle
                       as="h3"
-                      className="text-lg font-medium leading-6 text-gray-900"
+                      className="text-lg font-medium leading-6 text-gray-900 break-all"
                     >
                       {product.name}
                     </DialogTitle>
@@ -76,12 +77,14 @@ function ProductViewModal({ isOpen, onClose, product, isAvailable }) {
                     </div>
                     <Divider />
 
-                    <p className="text-sm text-gray-500 mt-4">{product.description}</p>
+                    <div className='min-h-20 max-h-20 overflow-hidden'>
+                      <p className="text-gray-600 text-sm mt-2 flex-grow break-all">{truncateText(product.description, 70)}</p>
+                    </div>
 
                     <div className="mt-4 flex items-center justify-end">
-                    <Button className="w-22 rounded-lg justify-end py-3 text-white font-semibold bg-blue-500 hover:bg-blue-600 cursor-pointer" onClick={onClose}>
-                      Close
-                    </Button>
+                      <Button className="w-22 rounded-lg justify-end py-3 text-white font-semibold bg-blue-500 hover:bg-blue-600 cursor-pointer" onClick={onClose}>
+                        Close
+                      </Button>
                     </div>
                   </div>
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import ProductViewModal from './ProductViewModal';
+import { truncateText } from './truncateText';
 
 const containerVariants = {
     hidden: { opacity: 0, scale: 0.8 },
@@ -30,12 +31,12 @@ const ProductCart = ({ product }) => {
                 animate="visible"
             >
                 <div onClick={() => handleProductViewModal(product)} className='w-full overflow-hidden aspect-[3/2] relative'>
-                    <img className="cursor-pointer w-full h-full object-cover transition-transform duration-300 transform hover:scale-105" src={product.image} alt={product.name} />
+                    <img className="cursor-pointer w-full h-full object-cover transition-transform duration-300 transform hover:scale-105 break-all" src={product.image} alt={truncateText(product.name, 20)} />
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
-                    <h2 className="text-xl font-semibold text-gray-800">{product.name}</h2>
+                    <h2 className="text-xl font-semibold text-gray-800 break-all">{truncateText(product.name, 40)}</h2>
                     <div className='min-h-20 max-h-20 overflow-hidden'>
-                        <p className="text-gray-600 text-sm mt-2 flex-grow">{product.description}</p>
+                        <p className="text-gray-600 text-sm mt-2 flex-grow break-all">{truncateText(product.description, 70)}</p>
                     </div>
                     <div className="mt-4 flex items-center justify-between">
                         <div className="flex items-center justify-between">
