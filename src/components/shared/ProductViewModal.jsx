@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { Divider } from '@mui/material';
 import { MdClose, MdDone } from 'react-icons/md';
 import Status from './Status';
-import { truncateText } from './truncateText';
 
 function ProductViewModal({ isOpen, onClose, product, isAvailable }) {
   return (
@@ -77,8 +76,8 @@ function ProductViewModal({ isOpen, onClose, product, isAvailable }) {
                     </div>
                     <Divider />
 
-                    <div className='min-h-20 max-h-20 overflow-hidden'>
-                      <p className="text-gray-600 text-sm mt-2 flex-grow break-all">{truncateText(product.description, 70)}</p>
+                    <div className='min-h-20 max-h-20'>
+                      <p className="text-gray-600 text-sm mt-2 flex-grow break-all ">{product.description}</p>
                     </div>
 
                     <div className="mt-4 flex items-center justify-end">

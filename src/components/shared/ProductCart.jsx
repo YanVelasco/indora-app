@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import ProductViewModal from './ProductViewModal';
-import { truncateText } from './truncateText';
+import { truncateText } from '../../util/truncateText';
 
 const containerVariants = {
     hidden: { opacity: 0, scale: 0.8 },
