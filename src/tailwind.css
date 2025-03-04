@@ -30,3 +30,7 @@
 .bg-banner-color4 {
     background-color: var(--color-banner-color4);
 }
+
+.bg-custom-gradient {
+    background: var(--background-custom-gradient);
+}
