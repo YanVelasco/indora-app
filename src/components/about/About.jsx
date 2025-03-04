@@ -56,8 +56,8 @@ export const About = () => {
                 )}
                 {!isLoading && !errorMessage && (
                     <div className="min-h-[700px]">
-                        <div className="pb-6 pt-14 grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8">
-                            {products.map((product) =>
+                        <div className="pb-6 pt-14 grid 2xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8">
+                            {products?.slice(0, 3).map((product) =>
                                 <ProductCart key={product.id} product={product} />
                             )}
                         </div>
