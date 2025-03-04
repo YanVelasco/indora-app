@@ -34,7 +34,7 @@ export const Banner = () => {
                     <SwiperSlide key={banner.id}>
                         <div className={`carousel-item bg-cover bg-center sm:h-[500px] h-96 ${colors[banner.id]}`}>
                             <div className='flex items-center justify-center'>
-                                <divdiversas className="hidden lg:flex justify-center w-1/2 p-8">
+                                <div className="hidden lg:flex justify-center w-1/2 p-8">
                                     <div className='text-center'>
                                         <h3 className='text-3xl font-bold text-white'>
                                             {banner.title}
@@ -49,7 +49,7 @@ export const Banner = () => {
                                             Shop
                                         </Link>
                                     </div>
-                                </divdiversas>
+                                </div>
                                 <div className='w-full lg:w-1/2  flex items-center justify-center p-8'>
                                     <img src={banner?.image} alt={banner.title} />
                                 </div>
