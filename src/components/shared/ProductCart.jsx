@@ -1,86 +1,91 @@
-import { motion } from 'framer-motion';
-import PropTypes from 'prop-types';
-import { useState } from 'react';
-import { FaShoppingCart } from 'react-icons/fa';
-import ProductViewModal from './ProductViewModal';
-import { truncateText } from '../../util/truncateText';
+// import { motion } from 'framer-motion';
+// import PropTypes from 'prop-types';
+// import { useState } from 'react';
+// import { FaShoppingCart } from 'react-icons/fa';
+// import ProductViewModal from './ProductViewModal';
+// import { truncateText } from '../../util/truncateText';
 
-const containerVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
-};
+// const containerVariants = {
+//     hidden: { opacity: 0, scale: 0.8 },
+//     visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
+// };
 
-const ProductCart = ({ product }) => {
-    const [openProductViewModal, setOpenProductViewModal] = useState(false);
-    const [selectedProductViewModal, setSelectedProductViewModal] = useState(null);
-    const btnLoader = false;
-    const isAvailable = product.quantity > 0;
+import "../../styles/acessib.css";
+import { Link, useLocation } from "react-router-dom";
+import { FaStore, FaShoppingCart, FaSignInAlt } from "react-icons/fa";
+import { RxCross2 } from "react-icons/rx";
+import { IoIosMenu } from "react-icons/io";
+import { Badge } from "@mui/material";
+import { useState } from "react";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import { FaGamepad, FaHandshake, FaGlobe, FaComment, FaLock, FaRecycle } from "react-icons/fa";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-    const handleProductViewModal = (product) => {
-        setSelectedProductViewModal(product);
-        setOpenProductViewModal(true);
-    }
 
-    return (
-        <div className="h-full">
-            <motion.div
-                key={product.id}
-                className="bg-white shadow-lg rounded-lg overflow-hidden transition-shadow-lg hover:shadow-xl h-full flex-col"
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-            >
-                <div onClick={() => handleProductViewModal(product)} className='w-full overflow-hidden aspect-[3/2] relative'>
-                    <img className="cursor-pointer w-full h-full object-cover transition-transform duration-300 transform hover:scale-105 break-all" src={product.image} alt={truncateText(product.name, 20)} />
-                </div>
-                <div className="p-6 flex flex-col flex-grow">
-                    <h2 className="text-xl font-semibold text-gray-800 break-all">{truncateText(product.name, 40)}</h2>
-                    <div className='min-h-20 max-h-20 overflow-hidden'>
-                        <p className="text-gray-600 text-sm mt-2 flex-grow break-all">{truncateText(product.description, 70)}</p>
-                    </div>
-                    <div className="mt-4 flex items-center justify-between">
-                        <div className="flex items-center justify-between">
-                            {product.price ? (
-                                <div className='flex flex-col gap-0.5'>
-                                    <span className="text-lg font-semibold line-through text-gray-700">${product.price.toFixed(2)}</span>
-                                    <span className="text-xl font-bold text-red-600">${product.specialPrice.toFixed(2)}</span>
-                                </div>
-                            ) : (
-                                <span className="text-xl font-semibold text-gray-800">${product.price.toFixed(2)}</span>
-                            )}
-                        </div>
-                        <button className={`px-4 py-2 text-white font-semibold rounded-lg ${isAvailable ? "bg-blue-500 hover:bg-blue-600 cursor-pointer" : "bg-red-400 opacity-75 cursor-not-allowed"}`} disabled={!isAvailable || btnLoader}>
-                            <div className='flex items-center justify-center'>
-                                <FaShoppingCart className="inline-block mr-2" />
-                                {isAvailable ? "Add to Cart" : "Out of Stock"}
-                            </div>
-                        </button>
-                    </div>
-                </div>
-            </motion.div>
-            {selectedProductViewModal && (
-                <ProductViewModal
-                    isOpen={openProductViewModal}
-                    onClose={() => setOpenProductViewModal(false)}
-                    product={selectedProductViewModal}
-                    isAvailable={isAvailable}
-                />
-            )}
+const ProductCart = () => {
+
+  const navigate = useNavigate(); // Função chamada ao clicar no botão "Finalizar Compra"
+
+  const handleCheckout = () => {
+    console.log("Finalizando compra...");
+    navigate("/checkout"); // Redireciona para a rota de checkout
+  };
+
+  useEffect(() => {
+    const scripts = [
+      "/assets/js/cart.js",
+    ];
+  
+    scripts.forEach((src) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.async = true;
+      document.body.appendChild(script);
+    });
+  
+    return () => {
+      scripts.forEach((src) => {
+        const s = document.querySelector(`script[src="${src}"]`);
+        if (s) document.body.removeChild(s);
+      });
+    };
+  }, []);
+
+  return (
+    <>
+      <div className="max-w-3xl mx-auto mt-16 bg-[#23272f] rounded-xl shadow-xl p-10 min-h-[400px] my-20">
+        <h1 className="text-3xl font-bold text-center text-pink-600 mb-8 tracking-wide">
+          Carrinho de Compras
+        </h1>
+        <div id="cart-items" className="flex flex-col gap-6 mb-7"></div>
+        <div className="flex justify-end items-center mt-4 mb-2">
+          <span className="text-white text-lg font-medium mr-2">Total:</span>
+          <span className="text-pink-600 text-2xl font-bold tracking-wide">
+            R$ <span id="cart-total">0.00</span>
+          </span>
         </div>
-    );
-}
-
-ProductCart.propTypes = {
-    product: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        quantity: PropTypes.number.isRequired,
-        price: PropTypes.number.isRequired,
-        discount: PropTypes.number.isRequired,
-        specialPrice: PropTypes.number.isRequired,
-    }).isRequired,
+        <div className="text-end">
+          <button
+            className="inline-block bg-gradient-to-r from-pink-600 to-purple-800 text-white text-lg font-bold rounded-lg px-8 py-3 mt-4 shadow-md hover:from-pink-400 hover:to-purple-600 transform hover:-translate-y-1 hover:scale-105 transition"
+            id="checkout-btn"
+            onClick={handleCheckout}
+          >
+            Finalizar Compra
+          </button>
+        </div>
+        <div className="text-end centralizar-botao">
+          <a
+            href="./PaginaInterna1.html"
+            className="inline-block bg-gradient-to-r from-pink-600 to-purple-800 text-white text-lg font-bold rounded-lg px-8 py-3 mt-4 shadow-md hover:from-pink-400 hover:to-purple-600 transform hover:-translate-y-1 hover:scale-105 transition"
+            // id="checkout-btn"
+          >
+            Continuar Comprando
+          </a>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default ProductCart;
