@@ -12,7 +12,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/shared/NavBar";
 import Footer from "./components/shared/Footer";
 import About from "./components/about/About";
-import ProductCart from "./components/shared/ProductCart";
+// import ProductCart from "./components/shared/ProductCart";
+import Cart from "./components/shared/Cart";
 import VLibras from "./components/vlibras/VLibras";
 
 function App() {
@@ -22,9 +23,10 @@ function App() {
         <NavBar />
         <VLibras />
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/shared" element={<ProductCart />} />
+          {/* <Route path="/shared" element={<ProductCart />} /> */}
+          <Route path="/shared" element={<Cart />} />
           <Route path="/products" element={<Products />} />
         </Routes>
         <Footer />
