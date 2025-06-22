@@ -25,7 +25,7 @@ import Andre from "../../assets/images/time/Andre.jpg";
 import Carol from "../../assets/images/time/carolinapereira.jfif";
 import Luiza from "../../assets/images/time/LuizaVicente.jpg";
 import Romulo from "../../assets/images/time/RômuloAmaro.png";
-// import Yan from "../../assets/images/time/yan.enc";
+import Yan from "../../assets/images/time/yan.jpg";
 import Indiegames from "../../assets/images/sobre/indiegames.png";
 import Jogosindie from "../../assets/images/sobre/jogos-indie.jpg";
 
@@ -251,7 +251,7 @@ const About = () => {
           >
             <img
               className="w-36 h-36 rounded-full object-cover mx-auto mb-2"
-              // src={Yan}
+              src={Yan}
               alt="Foto do Yan Carlos Duarte Velasco"
             />
             <h3 className="text-sm font-medium">Yan Carlos Duarte Velasco</h3>
