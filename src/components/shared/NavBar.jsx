@@ -1,15 +1,34 @@
 // import "../../styles/styles.css";
 import "../../styles/acessib.css";
 import logo from "../../assets/images/logo/SolRetrowaveLogo.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaStore, FaShoppingCart, FaSignInAlt, FaBars } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { IoIosMenu } from "react-icons/io";
 import { Badge } from "@mui/material";
 import { useState } from "react";
 import { useEffect } from "react";
+import { isAuthenticated } from "../../auth/auth";
 
 const NavBar = () => {
+  const navigate = useNavigate();
+  const [logoutLoading, setLogoutLoading] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(isAuthenticated());
+
+  // Checa se existe o cookie de autenticação (jwtCookie) usando utilitário
+  useEffect(() => {
+    function checkAuth() {
+      setIsLoggedIn(isAuthenticated());
+    }
+    checkAuth();
+    window.addEventListener('focus', checkAuth);
+    // Polling para detectar mudanças no cookie
+    const interval = setInterval(checkAuth, 1000);
+    return () => {
+      window.removeEventListener('focus', checkAuth);
+      clearInterval(interval);
+    };
+  }, []);
 
   useEffect(() => {
     const scripts = [
@@ -18,14 +37,12 @@ const NavBar = () => {
       "/assets/js/contAcesG.js",
       "/assets/js/contAcesFC.js",
     ];
-  
     scripts.forEach((src) => {
       const script = document.createElement("script");
       script.src = src;
       script.async = true;
       document.body.appendChild(script);
     });
-  
     return () => {
       scripts.forEach((src) => {
         const s = document.querySelector(`script[src="${src}"]`);
@@ -33,7 +50,22 @@ const NavBar = () => {
       });
     };
   }, []);
-  
+
+  const handleLogout = async () => {
+    setLogoutLoading(true);
+    try {
+      await fetch("/api/auth/signout", {
+        method: "POST",
+        credentials: "include"
+      });
+      setIsLoggedIn(false);
+      navigate("/signin");
+    } catch {
+      // erro ao deslogar
+    } finally {
+      setLogoutLoading(false);
+    }
+  };
 
   return (
     
@@ -81,39 +113,52 @@ const NavBar = () => {
       <nav className="mt-4 md:mt-0">
         <ul className="flex flex-wrap items-center gap-6 text-sm justify-center">
           <li>
-            <Link to="/home" className="hover:underline">
+            <Link to="/" className="hover:underline">
               Home
             </Link>
           </li>
           <li>
-            <a href="./PaginaInterna1.html" className="hover:underline">
+            <Link to="/products" className="hover:underline">
               Mais vendidos
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="./PaginaInterna2.html" className="hover:underline">
+            <Link to="/products" className="hover:underline">
               Ofertas do dia
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="./PaginaInterna3.html" className="hover:underline">
+            <Link to="/signup" className="hover:underline">
               Cadastro
-            </a>
+            </Link>
           </li>
           <li className="flex items-center gap-1">
-            <a href="./shared" className="flex items-center gap-1">
+            <Link to="/shared" className="flex items-center gap-1">
               <FaShoppingCart />
               Carrinho <span id="cart-counter">0</span>
-            </a>
+            </Link>
           </li>
-          <li>
-            <a
-              href="./PaginaInterna5.html"
-              className="bg-[#e60067] hover:bg-[#c4005a] rounded px-4 py-1.5 text-white transition"
-            >
-              Login
-            </a>
-          </li>
+          {/* Botão de Login/Logout - apenas um aparece */}
+          {!isLoggedIn ? (
+            <li>
+              <Link
+                to="/signin"
+                className="bg-[#e60067] hover:bg-[#c4005a] rounded px-4 py-1.5 text-white transition"
+              >
+                Login
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <button
+                onClick={handleLogout}
+                className="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-white font-semibold"
+                disabled={logoutLoading}
+              >
+                {logoutLoading ? "Saindo..." : "Logout"}
+              </button>
+            </li>
+          )}
         </ul>
       </nav>
     </header>

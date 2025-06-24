@@ -15,6 +15,8 @@ import About from "./components/about/About";
 // import ProductCart from "./components/shared/ProductCart";
 import Cart from "./components/shared/Cart";
 import VLibras from "./components/vlibras/VLibras";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           {/* <Route path="/shared" element={<ProductCart />} /> */}
           <Route path="/shared" element={<Cart />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
         <Footer />
       </Router>
