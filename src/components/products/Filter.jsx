@@ -68,7 +68,7 @@ export const Filter = ({ categories }) => {
                     onChange={(e) => setSearchTerm(e.target.value)}
                     type="text"
                     placeholder='Search Products'
-                    className='border border-gray-400 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-700 w-full text-slate-800'
+                    className='border border-gray-400 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-700 w-full text-white bg-neutral-900 placeholder-gray-400'
                 />
                 <FiSearch className='absolute left-3 text-slate-800 size-5' />
             </div>
