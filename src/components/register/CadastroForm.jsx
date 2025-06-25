@@ -1,0 +1,294 @@
+import React from "react";
+import Witcher1 from "../../assets/images/cadastro/Witcher1.jpg";
+import ResidentEvil4 from "../../assets/images/cadastro/Resident Evil 4.jpg";
+import Fifa241 from "../../assets/images/cadastro/FIFA 24_1.jpg";
+import CallofDuty from "../../assets/images/cadastro/Call of Duty.jpg";
+import { useEffect } from "react";
+
+const CadastroForm = () => {
+
+  useEffect(() => {
+    const scripts = [
+      "/assets/js/cart.js",
+      "/assets/js/cart-page.js",
+      "/assets/js/contAcesG.js",
+      "/assets/js/contAcesFC.js",
+      "/assets/js/cadCont.js",
+
+    ];
+  
+    scripts.forEach((src) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.async = true;
+      document.body.appendChild(script);
+    });
+  
+    return () => {
+      scripts.forEach((src) => {
+        const s = document.querySelector(`script[src="${src}"]`);
+        if (s) document.body.removeChild(s);
+      });
+    };
+  }, []);
+
+  return (
+    <form id="cadastroFields">
+      <main>
+        <div className="flex justify-center items-center gap-10 p-10 flex-wrap min-h-screen mt-1 relative z-10">
+          <div className="flex flex-col items-center gap-4 mt-5">
+            <img
+              src={Witcher1}
+              alt="The Witcher"
+              // className="w-[250px] h-[250px] object-contain"
+              className="w-[250px] h-[250px] md:w-[350px] md:h-[350px] object-contain"
+            />
+            <img
+              src={ResidentEvil4}
+              alt="Resident Evil 4"
+              // className="w-[250px] h-[250px] object-contain"
+              className="w-[250px] h-[250px] md:w-[350px] md:h-[350px] object-contain"
+            />
+          </div>
+          <div className="w-full max-w-[546px] bg-[#1f1f1f] rounded-2xl shadow-md p-8 text-center mt-5">
+            <div className="bg-[#1f1f1f] rounded-2xl shadow-md max-w-[546px] mx-auto text-center mt-5 p-8">
+              <h2 className="text-center mb-7 text-white text-2xl font-semibold">
+                A Indora desde já agradece pelo seu cadastro!
+              </h2>
+              {/* <div className="flex justify-center gap-4 mt-4">
+                <input
+                  type="radio"
+                  name="formOption"
+                  id="cadastro"
+                  className=""
+                />
+                <label htmlFor="cadastro">Cadastro</label>
+                <input
+                  type="radio"
+                  name="formOption"
+                  id="contato"
+                  className="bg-gray-600 text-white px-4 py-2 rounded cursor-pointer text-sm hover:bg-gray-500"
+                />
+                <label htmlFor="contato">Contato</label>
+              </div> */}
+
+              {/* Formulário de Cadastro */}
+              <form
+                className="fields"
+                id="cadastroFields"
+                name="cadastro"
+                method="post"
+              >
+                {/* <label htmlFor="tipo">Tipo de Cadastro</label>
+                <select
+                  id="tipo"
+                  name="tipo"
+                  className="p-2 rounded border border-gray-300 text-gray-700 text-sm w-full"
+                  defaultValue=""
+                >
+                  <option value="" disabled>
+                    Selecione uma opção
+                  </option>
+                  <option value="usuario">Usuário</option>
+                  <option value="parceiro">Parceiro</option>
+                </select> */}
+
+                <label htmlFor="name">Nome Completo</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Nome Completo"
+                  className="p-2 rounded border border-gray-300 text-sm text-gray-700 w-full placeholder:text-gray-500"
+                />
+
+                <button
+                  id="openAvatarModal"
+                  type="button"
+                  className="btn btn-primary inline-block px-4 py-2 bg-pink-600 text-white text-sm rounded hover:bg-pink-700 disabled:bg-gray-400 disabled:cursor-not-allowed mx-auto"
+                >
+                  Escolha seu avatar
+                </button>
+
+                <input type="hidden" id="avatarInput" value="" />
+
+                <div
+                  id="avatarModal"
+                  className="modal hidden"
+                  role="dialog"
+                  aria-modal="true"
+                  aria-labelledby="avatarModalTitle"
+                >
+                  <div className="modal-content">
+                    <span id="closeAvatarModal" className="close">
+                      ×
+                    </span>
+                    <h3 className="titulo-modal">Escolha seu Avatar</h3>
+                    <div className="avatar-list d-flex flex-wrap gap-3">
+                      {[...Array(13)].map((_, i) => {
+                        const id = `avatar${i + 1}`;
+                        const icons = [
+                          "bi-person-circle",
+                          "bi-emoji-smile",
+                          "bi-robot",
+                          "bi-emoji-heart-eyes",
+                          "bi-emoji-sunglasses",
+                          "bi-person-badge",
+                          "bi-emoji-neutral",
+                          "bi-emoji-angry",
+                          "bi-emoji-laughing",
+                          "bi-emoji-smile-fill",
+                          "bi-emoji-kiss",
+                          "bi-emoji-wink",
+                          "bi-person",
+                        ];
+                        return (
+                          <div
+                            key={id}
+                            className="avatar-option"
+                            data-value={id}
+                            tabIndex="0"
+                            role="button"
+                            aria-pressed="false"
+                          >
+                            <input
+                              type="radio"
+                              name="avatar"
+                              id={id}
+                              value={id}
+                              className="hidden-radio"
+                            />
+                            <i className={`bi ${icons[i]} avatar-icon`}></i>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <div
+                      id="avatarPreview"
+                      aria-live="polite"
+                      aria-atomic="true"
+                    >
+                      Nenhum avatar selecionado.
+                    </div>
+                  </div>
+                </div>
+
+                <label htmlFor="username">Nome de Usuário</label>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="Nome de Usuário"
+                  readOnly
+                  // className="p-2 rounded border border-gray-300 text-sm text-gray-700 w-full placeholder:text-gray-500"
+                  className="p-2 rounded border border-gray-300 text-sm text-gray-700 max-w-none w-[90vw] sm:w-full max-w-nome placeholder:text-gray-500"
+                />
+
+                <label htmlFor="dataNascimento">Data de Nascimento</label>
+                <input
+                  type="date"
+                  id="dataNascimento"
+                  name="dataNascimento"
+                  required
+                  // className="p-2 rounded border border-gray-300 text-sm text-gray-700 w-full placeholder:text-gray-500"
+                  className="p-2 rounded border border-gray-300 text-sm text-gray-700 max-w-none w-[90vw] sm:w-full max-w-nome placeholder:text-gray-500"
+                />
+                <span
+                  id="dataNascimentoHelp"
+                  className="text-xs text-gray-500 mt-1"
+                ></span>
+
+                <label htmlFor="email">E-mail</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="E-mail"
+                  // className="p-2 rounded border border-gray-300 text-sm text-gray-700 w-full placeholder:text-gray-500"
+                  className="p-2 rounded border border-gray-300 text-sm text-gray-700 max-w-none w-[90vw] sm:w-full max-w-nome placeholder:text-gray-500"
+                />
+                <span
+                  id="email-help"
+                  className="text-xs text-gray-500 mt-1"
+                ></span>
+
+                <label htmlFor="password">Senha</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Senha"
+                  // className="p-2 rounded border border-gray-300 text-sm text-gray-700 w-full placeholder:text-gray-500"
+                  className="p-2 rounded border border-gray-300 text-sm text-gray-700 max-w-none w-[90vw] sm:w-full max-w-nome placeholder:text-gray-500"
+                />
+                <small
+                  id="password-help"
+                  className="text-xs text-gray-500 mt-1"
+                ></small>
+
+                <label htmlFor="confirm-password">Confirme a Senha</label>
+                <input
+                  type="password"
+                  id="confirm-password"
+                  name="confirm-password"
+                  placeholder="Confirme a Senha"
+                  // className="p-2 rounded border border-gray-300 text-sm text-gray-700 w-full placeholder:text-gray-500"
+                  className="p-2 rounded border border-gray-300 text-sm text-gray-700 max-w-none w-[90vw] sm:w-full max-w-nome placeholder:text-gray-500"
+                />
+                <small
+                  id="confirm-password-help"
+                  className="text-xs text-gray-500 mt-1"
+                ></small>
+
+                <button
+                  type="submit"
+                  className="inline-block px-4 py-2 bg-pink-600 text-white text-sm rounded hover:bg-pink-700 disabled:bg-gray-400 disabled:cursor-not-allowed mx-auto"
+                  id="enviarCadastro"
+                  disabled
+                >
+                  Enviar Cadastro
+                </button>
+                <span
+                  id="mensagemCadastro"
+                  className="text-sm text-red-500 mt-2 hidden group-hover:block"
+                >
+                  Pronto para começar? Assim que os campos forem preenchidos,
+                  clique para finalizar seu cadastro!
+                </span>
+                <button
+                  type="button"
+                  className="inline-block px-4 py-2 bg-pink-600 text-white text-sm rounded hover:bg-pink-700 disabled:bg-gray-400 disabled:cursor-not-allowed mx-auto"
+                  id="cancelarCadastro"
+                >
+                  Cancelar
+                </button>
+                <span
+                  id="mensagemCancelarCadastro"
+                  className="text-sm text-red-500 mt-2 hidden group-hover:block"
+                >
+                  Mudou de ideia? Cancele o cadastro clicando aqui.
+                </span>
+              </form>
+            </div>
+          </div>
+          <div className="flex flex-col items-center gap-4 mt-5">
+            <img
+              src={Fifa241}
+              alt="FIFA 24"
+              // className="w-[250px] h-[250px] object-contain"
+              className="w-[250px] h-[250px] md:w-[350px] md:h-[350px] object-contain"
+            />
+            <img
+              src={CallofDuty}
+              alt="Call of Duty WWII"
+              // className="w-[250px] h-[250px] object-contain"
+              className="w-[250px] h-[250px] md:w-[350px] md:h-[350px] object-contain"
+            />
+          </div>
+          </div>
+      </main>
+    </form>
+  );
+};
+
+export default CadastroForm;

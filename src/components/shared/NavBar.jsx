@@ -14,6 +14,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   const [logoutLoading, setLogoutLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(isAuthenticated());
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Checa se existe o cookie de autenticação (jwtCookie) usando utilitário
   useEffect(() => {
@@ -21,11 +22,11 @@ const NavBar = () => {
       setIsLoggedIn(isAuthenticated());
     }
     checkAuth();
-    window.addEventListener('focus', checkAuth);
+    window.addEventListener("focus", checkAuth);
     // Polling para detectar mudanças no cookie
     const interval = setInterval(checkAuth, 1000);
     return () => {
-      window.removeEventListener('focus', checkAuth);
+      window.removeEventListener("focus", checkAuth);
       clearInterval(interval);
     };
   }, []);
@@ -56,7 +57,7 @@ const NavBar = () => {
     try {
       await fetch("/api/auth/signout", {
         method: "POST",
-        credentials: "include"
+        credentials: "include",
       });
       setIsLoggedIn(false);
       navigate("/signin");
@@ -68,17 +69,15 @@ const NavBar = () => {
   };
 
   return (
-    
     // <header className="flex flex-col md:flex-row md:justify-between items-center px-4 md:px-8 py-4 bg-[#1f1f1f] w-full z-50 text-white">
     <header className="fixed top-0 flex flex-col md:flex-row md:justify-between items-center px-4 md:px-8 py-4 bg-[#1f1f1f] w-full z-50 text-white">
-
       <div className="flex text-3xl font-extrabold items-center font-['GN-Kin-iro_SansSerif',sans-serif]">
         <img className="w-20 h-20" src={logo} alt="logo INDORA" />
         INDORA
       </div>
 
       <div
-        className="flex flex-wrap gap-2 p-1 max-w-full text-xs"
+        className="flex flex-wrap gap-2 p-1 max-w-full text-xs relative z-10 md:z-0 ml-20"
         role="region"
         aria-label="Ferramentas de acessibilidade"
       >
@@ -110,8 +109,18 @@ const NavBar = () => {
         </button>
       </div>
 
-      <nav className="mt-4 md:mt-0">
-        <ul className="flex flex-wrap items-center gap-6 text-sm justify-center">
+      <div className="md:hidden flex justify-center w-full mt-2">
+        <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menu">
+          {menuOpen ? <RxCross2 size={28} /> : <FaBars size={28} />}
+        </button>
+      </div>
+
+      {/* <nav className={`mt-4 md:mt-0 w-full ${menuOpen ? "block z-20" : "hidden"} md:block`}> */}
+      {/* <nav className={`mt-4 md:mt-0 w-full ${menuOpen ? "block" : "hidden"} md:flex md:items-center md:justify-center`}> */}
+      {/* <nav className={`mt-4 md:mt-0 w-full ${menuOpen ? "block" : "hidden"} md:block`}> */}
+      <nav className={`w-full ${menuOpen ? "block" : "hidden"} md:flex md:items-center md:justify-center`}>
+        {/* <ul className="flex flex-col md:flex-row items-center gap-6 text-sm justify-center"> */}
+        <ul className="flex flex-col md:flex-row items-center gap-6 text-sm">
           <li>
             <Link to="/" className="hover:underline">
               Home
@@ -138,7 +147,6 @@ const NavBar = () => {
               Carrinho <span id="cart-counter">0</span>
             </Link>
           </li>
-          {/* Botão de Login/Logout - apenas um aparece */}
           {!isLoggedIn ? (
             <li>
               <Link
