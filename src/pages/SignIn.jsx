@@ -19,6 +19,11 @@ const SignIn = () => {
       });
       const data = await response.json();
       if (response.ok && data.jwtCookie) {
+        // Extrai apenas o valor do JWT do campo jwtCookie
+        const match = data.jwtCookie.match(/springboot-jwt=([^;]+)/);
+        if (match) {
+          document.cookie = `jwtCookie=${match[1]}; path=/;`;
+        }
         navigate("/");
       } else {
         setError(data.message || "Login failed");
