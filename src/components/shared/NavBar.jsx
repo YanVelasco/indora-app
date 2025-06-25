@@ -57,8 +57,10 @@ const NavBar = () => {
     try {
       await fetch("/api/auth/signout", {
         method: "POST",
-        credentials: "include",
+        credentials: "include"
       });
+      // Limpa o cookie jwtCookie
+      document.cookie = "jwtCookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
       setIsLoggedIn(false);
       navigate("/signin");
     } catch {
