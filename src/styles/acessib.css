@@ -20,11 +20,11 @@
 
 .alto-contraste {
     background-color: #000 !important;
-    color: #fff !important;
+    color: #E1AD01	 !important;
   }
   
   .alto-contraste a {
-    color: #ff0 !important;
+    color: #E1AD01	 !important;
     text-decoration: underline;
   }
   
@@ -33,20 +33,17 @@
   .alto-contraste textarea,
   .alto-contraste button {
     background-color: #000 !important;
-    color: #fff !important;
-    border: 1px solid #fff !important;
+    color: #E1AD01	 !important;
+    border: 1px solid #E1AD01	 !important;
   }
   
   .alto-contraste label,
   .alto-contraste h1,
   .alto-contraste h2,
   .alto-contraste h3 {
-    color: #fff !important;
+    color: #E1AD01	 !important;
   }
 
-  .alto-contraste h3 {
-    color: #fff !important;
-  }
   
   .alto-contraste h3.titulo-modal {
     color: #000 !important; /* Mantém preto no contraste */
@@ -65,15 +62,15 @@
 .alto-contraste input:focus,
 .alto-contraste select:focus,
 .alto-contraste textarea:focus {
-  outline: 2px dashed #ff0;
+  outline: 2px dashed #E1AD01	;
   outline-offset: 2px;
 }
 
 .alto-contraste .card, 
 .alto-contraste .container, 
 .alto-contraste .section {
-  border: 2px solid #fff !important;
-  box-shadow: 0 0 10px #fff !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 0 0 10px #E1AD01	 !important;
 }
 
 .alto-contraste a:visited {
@@ -81,10 +78,10 @@
 }
 
 .alto-contraste #btn-contraste {
-  background-color: #fff !important;
+  background-color: #E1AD01	 !important;
   color: #000 !important;
-  border: 2px solid #fff !important;
-  box-shadow: 0 0 5px #fff !important;
+  border: 2px solid #E1AD01	 !important;
+  box-shadow: 0 0 5px #E1AD01	 !important;
 }
 
 .alto-contraste .imagem-de-fundo {
@@ -99,15 +96,15 @@ body {
 .alto-contraste h4,
 .alto-contraste p,
 .alto-contraste span {
-  color: #fff !important;
+  color: #E1AD01	 !important;
 }
 
 .alto-contraste table,
 .alto-contraste th,
 .alto-contraste td {
   background-color: #000 !important;
-  color: #fff !important;
-  border: 1px solid #fff !important;
+  color: #E1AD01	 !important;
+  border: 1px solid #E1AD01	 !important;
 }
 
 /* Ler */
@@ -132,7 +129,16 @@ body {
 
 :root {
   --header-height: 60px;
+  --color-contrast-bg: #000;
+  --color-contrast-text: #E1AD01;
+
 }
+
+.alto-contraste {
+  background-color: var(--color-contrast-bg);
+  color: var(--color-contrast-text);
+}
+
 
 /* Modal */
 .modal {
@@ -154,7 +160,7 @@ body {
 
 /* Modal conteúdo */
 .modal-content {
-  background-color: #fff;
+  background-color: #E1AD01	;
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.3);
@@ -207,9 +213,9 @@ body {
   background-color: #ffe6f0;
 }
 
-.hidden {
+/* .hidden {
   display: none !important;
-}
+} */
 
 .avatar-option.selected {
   border: 3px solid #e60067; /* azul Bootstrap */

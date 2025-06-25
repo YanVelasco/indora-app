@@ -48,7 +48,7 @@ const Footer = () => {
               <a href="./Termos de Uso.html" className="hover:underline">Termos de Uso</a>
             </li>
             <li>
-              <Link to="/contato" className="hover:underline">Contato</Link>
+              <Link to="/contact" className="hover:underline">Contato</Link>
             </li>
           </ul>
         </div>

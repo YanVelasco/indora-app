@@ -17,13 +17,14 @@ import Cart from "./components/shared/Cart";
 import VLibras from "./components/vlibras/VLibras";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import ContatoForm from "./components/contact/ContatoForm";
 
 function App() {
   return (
     <div className="bg-black min-h-screen text-white pt-34">
       <Router>
         <NavBar />
-        <VLibras />
+        {/* <VLibras /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -32,6 +33,7 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/contact" element={<ContatoForm />} />
         </Routes>
         <Footer />
       </Router>
