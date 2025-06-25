@@ -59,6 +59,8 @@ const NavBar = () => {
         method: "POST",
         credentials: "include"
       });
+      // Remove o cookie jwtCookie manualmente (expira imediatamente)
+      document.cookie = "jwtCookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
       setIsLoggedIn(false);
       navigate("/signin");
     } catch {
