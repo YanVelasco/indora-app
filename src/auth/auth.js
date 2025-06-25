@@ -23,7 +23,13 @@ export function parseJwt(token) {
 }
 
 export function isAuthenticated() {
-  return !!getCookie('jwtCookie');
+  const token = getCookie('jwtCookie');
+  if (!token) return false;
+  const payload = parseJwt(token);
+  if (!payload) return false;
+ 
+  if (payload.exp && Date.now() >= payload.exp * 1000) return false;
+  return true;
 }
 
 export function getUserRoles() {
