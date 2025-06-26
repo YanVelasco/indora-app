@@ -15,16 +15,30 @@ const NavBar = () => {
   const [logoutLoading, setLogoutLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(isAuthenticated());
   const [menuOpen, setMenuOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
 
   // Checa se existe o cookie de autenticação (jwtCookie) usando utilitário
   useEffect(() => {
     function checkAuth() {
       setIsLoggedIn(isAuthenticated());
     }
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("indora-cart")) || [];
+      // Soma todas as quantidades dos itens
+      const count = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+      setCartCount(count);
+    }
     checkAuth();
-    window.addEventListener("focus", checkAuth);
-    // Polling para detectar mudanças no cookie
-    const interval = setInterval(checkAuth, 1000);
+    updateCartCount();
+    window.addEventListener("focus", () => {
+      checkAuth();
+      updateCartCount();
+    });
+    // Polling para detectar mudanças no cookie e no carrinho
+    const interval = setInterval(() => {
+      checkAuth();
+      updateCartCount();
+    }, 1000);
     return () => {
       window.removeEventListener("focus", checkAuth);
       clearInterval(interval);
@@ -146,7 +160,7 @@ const NavBar = () => {
           <li className="flex items-center gap-1">
             <Link to="/shared" className="flex items-center gap-1">
               <FaShoppingCart />
-              Carrinho <span id="cart-counter">0</span>
+              Carrinho <span id="cart-counter">{cartCount}</span>
             </Link>
           </li>
           {!isLoggedIn ? (
