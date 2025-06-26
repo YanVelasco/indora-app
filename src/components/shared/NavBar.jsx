@@ -119,7 +119,7 @@ const NavBar = () => {
       {/* <nav className={`mt-4 md:mt-0 w-full ${menuOpen ? "block z-20" : "hidden"} md:block`}> */}
       {/* <nav className={`mt-4 md:mt-0 w-full ${menuOpen ? "block" : "hidden"} md:flex md:items-center md:justify-center`}> */}
       {/* <nav className={`mt-4 md:mt-0 w-full ${menuOpen ? "block" : "hidden"} md:block`}> */}
-      <nav className={`w-full ${menuOpen ? "block" : "hidden"} md:flex md:items-center md:justify-center`}>
+      <nav className={`w-full ${menuOpen ? "block" : "hidden"} md:flex md:items-center md:justify-end`}>
         {/* <ul className="flex flex-col md:flex-row items-center gap-6 text-sm justify-center"> */}
         <ul className="flex flex-col md:flex-row items-center gap-6 text-sm">
           <li>
