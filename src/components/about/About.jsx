@@ -1,10 +1,3 @@
-// import { useDispatch, useSelector } from "react-redux";
-// import { useEffect } from 'react';
-// import { fetchProducts } from '../../store/actions/index';
-// import { Loader } from '../../components/shared/Loader';
-// import { FaExclamationTriangle } from 'react-icons/fa';
-// import ProductCart from "../shared/ProductCart";
-
 import "../../styles/acessib.css";
 import { Link, useLocation } from "react-router-dom";
 import { FaStore, FaShoppingCart, FaSignInAlt } from "react-icons/fa";
@@ -34,12 +27,12 @@ const About = () => {
     <>
       <section className="w-full px-6 md:px-24 py-12 text-gray-100 bg-black text-white">
         <div className="space-y-4">
-          <h2 className="text-2xl font-bold text-pink-600">
+          <h2 className="text-3xl font-bold text-pink-500 drop-shadow-[0_0_10px_#ff00ff] mb-6 text-center">
             Bem-vindo a INDORA Game Shop, o seu destino definitivo para o mundo
             dos jogos eletrônicos!
           </h2>
           <p>
-          {/* <p className="text-lg leading-relaxed"> */}
+            {/* <p className="text-lg leading-relaxed"> */}
             Somos apaixonados por games e acreditamos que cada título carrega
             uma história única, seja ele um grande lançamento de sucesso ou uma
             pérola independente.
@@ -67,7 +60,7 @@ const About = () => {
           <img
             src={Indiegames}
             alt="Games Indie"
-            className="max-h-60 object-contain opacity-60 rounded-lg"
+            className="max-h-60 object-contain rounded-lg shadow-[0_0_20px_#00f0ff]" 
           />
         </div>
         <div className="col-span-2 px-6">
@@ -88,7 +81,9 @@ const About = () => {
                 <i className="fa fa-gamepad" />
               </span>
               <div>
-                <h5 className="font-semibold text-lg">Paixão pelos Games</h5>
+                <h5 className="text-left text-cyan-300 text-xl font-semibold mt-6 mb-2 drop-shadow-[0_0_6px_#00f0ff]">
+                  Paixão pelos Games
+                </h5>
                 <p>
                   Celebramos a criatividade, a diversão e a arte em cada título.
                 </p>
@@ -101,7 +96,7 @@ const About = () => {
                 <i className="fa fa-handshake" />
               </span>
               <div>
-                <h5 className="font-semibold text-lg">
+                <h5 className="text-left text-cyan-300 text-xl font-semibold mt-6 mb-2 drop-shadow-[0_0_6px_#00f0ff]">
                   Diversidade e Inclusão
                 </h5>
                 <p>
@@ -117,7 +112,9 @@ const About = () => {
                 <i className="fa fa-globe" />
               </span>
               <div>
-                <h5 className="font-semibold text-lg">Inovação</h5>
+                <h5 className="text-left text-cyan-300 text-xl font-semibold mt-6 mb-2 drop-shadow-[0_0_6px_#00f0ff]">
+                  Inovação
+                </h5>
                 <p>Buscamos novas formas de surpreender e engajar.</p>
               </div>
             </div>
@@ -128,7 +125,9 @@ const About = () => {
                 <i className="fa fa-comment" />
               </span>
               <div>
-                <h5 className="font-semibold text-lg">Comunidade</h5>
+                <h5 className="text-left text-cyan-300 text-xl font-semibold mt-6 mb-2 drop-shadow-[0_0_6px_#00f0ff]">
+                  Comunidade
+                </h5>
                 <p>
                   Valorizamos o diálogo, o respeito e o crescimento conjunto.
                 </p>
@@ -141,7 +140,9 @@ const About = () => {
                 <i className="fa fa-lock" />
               </span>
               <div>
-                <h5 className="font-semibold text-lg">Transparência e Ética</h5>
+                <h5 className="text-left text-cyan-300 text-xl font-semibold mt-6 mb-2 drop-shadow-[0_0_6px_#00f0ff]">
+                  Transparência e Ética
+                </h5>
                 <p>Atuamos com responsabilidade, clareza e compromisso.</p>
               </div>
             </div>
@@ -152,7 +153,7 @@ const About = () => {
                 <i className="fa fa-recycle" />
               </span>
               <div>
-                <h5 className="font-semibold text-lg">
+                <h5 className="text-left text-cyan-300 text-xl font-semibold mt-6 mb-2 drop-shadow-[0_0_6px_#00f0ff]">
                   Consciência Social e Ambiental
                 </h5>
                 <p>
@@ -167,11 +168,12 @@ const About = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 bg-gradient-to-r from-red-600 to-purple-800 text-white opacity-60">
         <div className="flex flex-col justify-center items-center p-6 text-justify">
-          <h2 className="text-2xl font-bold mb-2">Nossa Missão</h2>
-          <p>
+          <h2 className="text-2xl font-bold text-cyan-300 drop-shadow-[0_0_8px_#ff00ff] mb-4 text-center">Nossa Missão</h2>
+          <p className="text-pink-200 drop-shadow-[0_0_6px_#ff00ff] text-justify leading-relaxed">
             Fomentar a cena indie como movimento cultural e social, conectando
             talentos emergentes a públicos engajados, e promovendo inovação,
-            expressão artística e impacto positivo através do universo dos jogos.
+            expressão artística e impacto positivo através do universo dos
+            jogos.
           </p>
         </div>
 
@@ -179,13 +181,15 @@ const About = () => {
           <img
             src={Jogosindie}
             alt="Games Indie"
-            className="max-h-60 object-contain rounded-lg shadow-lg"
+            // className="max-h-60 object-contain rounded-lg shadow-lg"
+            className="max-h-60 object-contain rounded-lg shadow-[0_0_20px_#00f0ff]" 
           />
         </div>
 
         <div className="flex flex-col justify-center items-center p-6 text-justify">
-          <h2 className="text-2xl font-bold mb-2">Visão</h2>
-          <p>
+          {/* <h2 className="text-2xl font-bold mb-2">Visão</h2> */}
+          <h2 className="text-2xl font-bold text-cyan-300 drop-shadow-[0_0_8px_#ff00ff] mb-4 text-center">Visão</h2>
+          <p className="text-pink-200 drop-shadow-[0_0_6px_#ff00ff] text-justify leading-relaxed">
             Ser a principal vitrine e impulsionadora do universo dos jogos
             independentes, conectando criadores inovadores a uma comunidade
             global apaixonada por experiências autênticas, criativas e
@@ -196,7 +200,7 @@ const About = () => {
 
       <figure className="bg-black text-white py-8 px-5 text-center">
         <figcaption className="text-xl font-semibold mt-4">
-          <strong>Membros da Equipe INDORA</strong>
+          <strong className="text-xl font-bold text-purple-400 drop-shadow-[0_0_6px_#a855f7] mt-4">Membros da Equipe INDORA</strong>
         </figcaption>
         <div className="flex flex-wrap justify-center gap-6 py-8">
           <div
@@ -208,7 +212,9 @@ const About = () => {
               src={Andre}
               alt="Foto do André Medeiros Grigoli"
             />
-            <h3 className="text-sm font-medium">André Medeiros Grigoli</h3>
+            <h3 className="text-lg font-bold text-purple-400 drop-shadow-[0_0_6px_#a855f7] mt-4">
+              André Medeiros Grigoli
+            </h3>
           </div>
           <div
             className="bg-gray-900 rounded-lg p-5 w-40 text-center shadow-md hover:scale-105 transition-transform"
@@ -219,7 +225,9 @@ const About = () => {
               src={Carol}
               alt="Foto da Carolina Aparecida Pereira"
             />
-            <h3 className="text-sm font-medium">Carolina Aparecida Pereira</h3>
+            <h3 className="text-lg font-bold text-purple-400 drop-shadow-[0_0_6px_#a855f7] mt-4">
+              Carolina Aparecida Pereira
+            </h3>
           </div>
           <div
             className="bg-gray-900 rounded-lg p-5 w-40 text-center shadow-md hover:scale-105 transition-transform"
@@ -230,7 +238,7 @@ const About = () => {
               src={Luiza}
               alt="Foto da Luiza Mozzaquatro Palma Vicente"
             />
-            <h3 className="text-sm font-medium">
+            <h3 className="text-lg font-bold text-purple-400 drop-shadow-[0_0_6px_#a855f7] mt-4">
               Luiza Mozzaquatro Palma Vicente
             </h3>
           </div>
@@ -243,7 +251,9 @@ const About = () => {
               src={Romulo}
               alt="Foto do Rômulo de Sousa Amaro"
             />
-            <h3 className="text-sm font-medium">Rômulo de Sousa Amaro</h3>
+            <h3 className="text-lg font-bold text-purple-400 drop-shadow-[0_0_6px_#a855f7] mt-4">
+              Rômulo de Sousa Amaro
+            </h3>
           </div>
           <div
             className="bg-gray-900 rounded-lg p-5 w-40 text-center shadow-md hover:scale-105 transition-transform"
@@ -254,12 +264,14 @@ const About = () => {
               src={Yan}
               alt="Foto do Yan Carlos Duarte Velasco"
             />
-            <h3 className="text-sm font-medium">Yan Carlos Duarte Velasco</h3>
+            <h3 className="text-lg font-bold text-purple-400 drop-shadow-[0_0_6px_#a855f7] mt-4">
+              Yan Carlos Duarte Velasco
+            </h3>
           </div>
         </div>
         <figcaption className="text-xl font-semibold mt-4">
           <strong>
-            <h2>Explore, jogue e viva o universo dos games com a INDORA</h2>
+            <h2 className="text-3xl font-bold text-pink-500 drop-shadow-[0_0_10px_#ff00ff] mb-6 text-center">Explore, jogue e viva o universo dos games com a INDORA</h2>
           </strong>
         </figcaption>
       </figure>

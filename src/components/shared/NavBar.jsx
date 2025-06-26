@@ -72,7 +72,8 @@ const NavBar = () => {
 
   return (
     <header className="fixed top-0 flex flex-col md:flex-row md:justify-between items-center px-4 md:px-8 py-4 bg-[#1f1f1f] w-full z-50 text-white">
-      <div className="flex text-3xl font-extrabold items-center font-['GN-Kin-iro_SansSerif',sans-serif]">
+      {/* <div className="flex text-3xl font-extrabold items-center font-['GN-Kin-iro_SansSerif',sans-serif]"> */}
+      <div className="flex text-3xl font-extrabold items-center font-['GN-Kin-iro_SansSerif',sans-serif] text-pink-500 drop-shadow-[0_0_8px_#ff00ff]">
         <img className="w-20 h-20" src={logo} alt="logo INDORA" />
         INDORA
       </div>

@@ -1,5 +1,3 @@
-// import { Link } from "react-router-dom";
-// import "../../styles/styles.css";
 import "../../styles/acessib.css";
 import logo from "../../assets/images/logo/INDORARODAPE.jpeg";
 
@@ -9,15 +7,14 @@ import { RxCross2 } from "react-icons/rx";
 import { IoIosMenu } from "react-icons/io";
 import { Badge } from "@mui/material";
 import { useState } from "react";
-import '@fortawesome/fontawesome-free/css/all.min.css';
-
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const Footer = () => {
   return (
     <footer className="bg-[#1f1f1f] text-white p-2.5">
       <div className="max-w-full mx-auto p-2.5 flex justify-around">
         <div>
-          <h4 className="text-xl text-[#e60067] mb-2.5">Sobre Nós</h4>
+          <h4 className="text-xl font-semibold text-pink-500 drop-shadow-[0_0_6px_#ff007a] mb-2.5">Sobre Nós</h4>
           <p>
             Somos uma loja especializada em jogos eletrônicos, oferecendo as
             melhores ofertas e promoções.
@@ -30,31 +27,43 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-2 text-sm">
-          <h4 className="text-xl text-[#e60067] mb-2.5">Ajuda</h4>
+          <h4 className="text-xl font-semibold text-pink-500 drop-shadow-[0_0_6px_#ff007a] mb-2.5">
+            Ajuda
+          </h4>
           <ul className="space-y-2 ml-4">
             <li>
-              {/* <a href="./PaginaInterna7.html" className="hover:underline">Quem Somos</a> */}
-              <Link to="/about" className="hover:underline">Quem Somos</Link>
+              <Link to="/about" className="hover:underline">
+                Quem Somos
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:underline">Suporte</a>
+              <a href="#" className="hover:underline">
+                Suporte
+              </a>
             </li>
             <li>
-              <a href="./Politica de Privacidade.html" className="hover:underline">
+              <a
+                href="./Politica de Privacidade.html"
+                className="hover:underline"
+              >
                 Política de Privacidade
               </a>
             </li>
             <li>
-              <a href="./Termos de Uso.html" className="hover:underline">Termos de Uso</a>
+              <a href="./Termos de Uso.html" className="hover:underline">
+                Termos de Uso
+              </a>
             </li>
             <li>
-              <Link to="/contact" className="hover:underline">Contato</Link>
+              <Link to="/contact" className="hover:underline">
+                Contato
+              </Link>
             </li>
           </ul>
         </div>
 
         <div className="flex flex-col gap-2 text-sm">
-          <h4 className="flex justify-center text-xl text-[#e60067] mb-2.5">
+          <h4 className="text-xl font-semibold text-pink-500 drop-shadow-[0_0_6px_#ff007a] mb-2.5">
             Redes Sociais
           </h4>
           <div className="flex justify-center gap-5 text-2xl">

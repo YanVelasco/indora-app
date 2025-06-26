@@ -49,8 +49,8 @@ const Cart = () => {
       </div>
 
       <div className="flex justify-end items-center mt-4 mb-2">
-        <span className="text-cyan-300 text-lg font-medium mr-2">Total:</span>
-        <span className="text-pink-500 text-2xl font-bold tracking-widest drop-shadow-[0_0_5px_#ff00ff]">
+        <span className="mb-6 text-cyan-300 text-lg font-medium mr-2">Total:</span>
+        <span className="mb-6 text-pink-500 text-2xl font-bold tracking-widest drop-shadow-[0_0_5px_#ff00ff]">
           R$ {total}
         </span>
       </div>
