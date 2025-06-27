@@ -13,7 +13,7 @@ const DoraFloat = () => {
     navigate("/dora");
   };
 
-  if (location.pathname !== "/") return null;
+  // if (location.pathname !== "/") return null;
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -23,11 +23,12 @@ const DoraFloat = () => {
   }, []);
 
   return (
-    <div  onClick={handleClick}
-        className={`fixed bottom-8 left-8 z-50 cursor-pointer transition-all duration-500 group ${
+    <div
+      onClick={handleClick}
+      className={`fixed bottom-8 left-8 z-50 cursor-pointer transition-all duration-500 group ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-      }`}  >
-
+      }`}
+    >
       <div className="relative bg-white font-bold text-pink-500 drop-shadow-[0_0_10px_#ff00ff] text-sm px-4 py-2 rounded-lg shadow-lg mr-3  transition-opacity duration-300 opacity-0 group-hover:opacity-100">
         Clique para conhecer a DORA
       </div>
