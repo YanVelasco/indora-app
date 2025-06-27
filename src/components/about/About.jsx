@@ -25,7 +25,7 @@ import Jogosindie from "../../assets/images/sobre/jogos-indie.jpg";
 const About = () => {
   return (
     <>
-      <section className="w-full px-6 md:px-24 py-12 text-gray-100 bg-black text-white">
+      <section className="w-full px-6 md:px-24 py-12 text-gray-100 bg-black">
         <div className="space-y-4">
           <h2 className="text-3xl font-bold text-pink-500 drop-shadow-[0_0_10px_#ff00ff] mb-6 text-center">
             Bem-vindo a INDORA Game Shop, o seu destino definitivo para o mundo

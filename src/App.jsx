@@ -4,6 +4,8 @@ import Products from "./components/products/Products";
 // import { About } from "./components/about/About";
 // import { Contact } from "./components/contact/Contact";
 
+
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // import Home from "./components/home/Home";
@@ -18,6 +20,13 @@ import VLibras from "./components/vlibras/VLibras";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import ContatoForm from "./components/contact/ContatoForm";
+import Termos from './components/terms/Terms';
+import Politicas from './components/politics/Politicas';
+import Dora from './components/dora/Dora';
+import DoraFloat from './components/dora/DoraFloat';
+
+
+
 
 function App() {
   return (
@@ -34,7 +43,12 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/contact" element={<ContatoForm />} />
+          <Route path="/terms" element={<Termos />} />
+          <Route path="/politics" element={<Politicas />} />
+          <Route path="/dora" element={<Dora />} />
         </Routes>
+        
+        {/* <DoraFloat /> */}
         <Footer />
       </Router>
     </div>
