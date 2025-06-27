@@ -148,7 +148,7 @@ const NavBar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/products" className="hover:underline">
+            <Link to="/ofertas" className="hover:underline">
               Ofertas do dia
             </Link>
           </li>

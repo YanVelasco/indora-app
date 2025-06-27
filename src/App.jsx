@@ -24,6 +24,8 @@ import Termos from './components/terms/Terms';
 import Politicas from './components/politics/Politicas';
 import Dora from './components/dora/Dora';
 import DoraFloat from './components/dora/DoraFloat';
+import Ofertas from './components/ofertas/Ofertas';
+
 
 
 
@@ -46,6 +48,7 @@ function App() {
           <Route path="/terms" element={<Termos />} />
           <Route path="/politics" element={<Politicas />} />
           <Route path="/dora" element={<Dora />} />
+          <Route path="/ofertas" element={<Ofertas />} />
         </Routes>
         
         {/* <DoraFloat /> */}
