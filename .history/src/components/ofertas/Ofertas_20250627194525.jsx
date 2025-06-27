@@ -1,20 +1,5 @@
 import CarrosselOfertas from "../../components/ofertas/CarrosselOfertas";
-{/* import RainWorldCard from "../../components/ofertas/Carrosel"; */}
-
-import HollowKnight from "../../assets/images/ofertas/HollowKnight (1).jfif";
-import DeadCells from "../../assets/images/ofertas/DeadCells.webp";
-import EldenRing from "../../assets/images/ofertas/Elden Ring.jpg";
-import GodofWar from "../../assets/images/ofertas/God of War Ragnarok.jpg";
-import GhostofTsushima from "../../assets/images/ofertas/ghost-of-tsushima.jpg";
-import UNCHARTED from "../../assets/images/ofertas/UNCHARTED.jpg";
-import HogwartsLegacy from "../../assets/images/ofertas/HogwartsLegacy.jpg";
-import HorizonForbidden from "../../assets/images/ofertas/Horizon Forbidden West.jpg";
-import ResidentEvil  from "../../assets/images/ofertas/ResidentEvil.jfif";
-import NineSols from "../../assets/images/ofertas/Nine Sols.jpeg";
-import Gestalt from "../../assets/images/ofertas/Gestalt Steam & Cinder.jpg";
-import Gris from "../../assets/images/ofertas/images.webp";
-
-
+import RainWorldCard from "../../components/ofertas/Carrosel";
 
 import promoVideo from "../../assets/videos/MulletMadJackVideo.mp4";
 import promoImage from "../../assets/images/ofertas/Mullet-Mad-Jack_WW.jpg";
@@ -23,10 +8,9 @@ import promoImage from "../../assets/images/ofertas/Mullet-Mad-Jack_WW.jpg";
 import { CardOfertas } from "../../components/ofertas/CardOfertas";
 
 
-
 const jogosEmOferta = [
   {
-    img: HollowKnight,
+    img: "https://via.placeholder.com/400x200",
     title: "Hollow Knight",
     desc: "Explore um reino subterrâneo cheio de segredos.",
     desconto: "-40%",
@@ -34,7 +18,7 @@ const jogosEmOferta = [
     final: "R$ 47,94"
   },
   {
-    img: DeadCells,
+    img: "https://via.placeholder.com/400x200",
     title: "Dead Cells",
     desc: "Combate frenético e recomeços constantes.",
     desconto: "-35%",
@@ -42,7 +26,7 @@ const jogosEmOferta = [
     final: "R$ 38,93"
   },
   {
-    img: Gris,
+    img: "https://via.placeholder.com/400x200",
     title: "Gris",
     desc: "Uma jornada emocional com arte deslumbrante.",
     desconto: "-25%",
@@ -50,81 +34,31 @@ const jogosEmOferta = [
     final: "R$ 37,42"
   },
     {
-    img: EldenRing,
-    title: "Elden Ring",
-    desc: "Exploração e combates majestosos.",
+    img: "https://via.placeholder.com/400x200",
+    title: "Hollow Knight",
+    desc: "Explore um reino subterrâneo cheio de segredos.",
     desconto: "-40%",
     preco: "R$ 79,90",
     final: "R$ 47,94"
   },
   {
-    img: GodofWar,
-    title: "God of War",
-    desc: "Mitologia épica e combate visceral.",
+    img: "https://via.placeholder.com/400x200",
+    title: "Dead Cells",
+    desc: "Combate frenético e recomeços constantes.",
     desconto: "-35%",
     preco: "R$ 59,90",
     final: "R$ 38,93"
   },
   {
-    img: GhostofTsushima,
-    title: "Ghost of Tsushima",
-    desc: "Combate samurai emocionante.",
+    img: "https://via.placeholder.com/400x200",
+    title: "Gris",
+    desc: "Uma jornada emocional com arte deslumbrante.",
     desconto: "-25%",
     preco: "R$ 49,90",
     final: "R$ 37,42"
   }
 ];
 
-const jogosEmOferta2 = [
-  {
-    img: UNCHARTED,
-    title: "UNCHARTED™",
-    desc: "Aventura cheia de reviravoltas.",
-    desconto: "-40%",
-    preco: "R$ 79,90",
-    final: "R$ 47,94"
-  },
-  {
-    img: HogwartsLegacy,
-    title: "Hogwarts Legacy",
-    desc: "Magia e aventura no mundo bruxo.",
-    desconto: "-35%",
-    preco: "R$ 59,90",
-    final: "R$ 38,93"
-  },
-  {
-    img: HorizonForbidden,
-    title: "Horizon Forbidden West",
-    desc: "Uma jornada emocional com arte deslumbrante.",
-    desconto: "-25%",
-    preco: "R$ 49,90",
-    final: "R$ 37,42"
-  },
-    {
-    img: ResidentEvil,
-    title: "Resident Evil 4",
-    desc: "ETerror intenso cheio de suspense.",
-    desconto: "-40%",
-    preco: "R$ 79,90",
-    final: "R$ 47,94"
-  },
-  {
-    img: NineSols,
-    title: "Nine Sols",
-    desc: "Ação e aventura com uma estética única.",
-    desconto: "-35%",
-    preco: "R$ 59,90",
-    final: "R$ 38,93"
-  },
-  {
-    img: Gestalt,
-    title: "Gestalt",
-    desc: "Um RPG com visual steampunk e narrativa envolvente.",
-    desconto: "-25%",
-    preco: "R$ 49,90",
-    final: "R$ 37,42"
-  }
-];
 
 export default function Ofertas() {
   
@@ -136,8 +70,8 @@ export default function Ofertas() {
 
       <CarrosselOfertas />
 
-      {/* Aqui entra o card do Rain World 
-      <RainWorldCard />*/}
+      {/* Aqui entra o card do Rain World */}
+      <RainWorldCard />
 
       <section
         className="flex flex-col lg:flex-row items-center gap-10 py-8 bg-cover bg-center rounded-lg"
@@ -174,23 +108,12 @@ export default function Ofertas() {
         </div>
       </section>
 
-<h1 className="text-center text-3xl font-bold mt-4 text-cyan-300 animate-pulse drop-shadow-[0_0_6px_#00f0ff] py-7">
+
+<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+    <h1 className="text-3xl font-bold mt-4 text-cyan-300 drop-shadow-[2px_2px__black]">
             Promoção da Semana
           </h1>
-<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
-    
   {jogosEmOferta.map((jogo, index) => (
-    <CardOfertas key={index} jogo={jogo} />
-  ))}
-</section>
-
-
-<h1 className="text-center text-3xl font-bold mt-4 text-cyan-300 animate-pulse drop-shadow-[0_0_6px_#00f0ff] py-7">
-            Os Devs Jogam e Recomendam
-          </h1>
-<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
-    
-  {jogosEmOferta2.map((jogo, index) => (
     <CardOfertas key={index} jogo={jogo} />
   ))}
 </section>

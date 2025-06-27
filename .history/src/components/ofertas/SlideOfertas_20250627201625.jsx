@@ -16,21 +16,15 @@ export default function SlideOfertas({ image, gif1, gif2, title, promo, price })
             <h2 className="text-2xl md:text-3xl font-extrabold mb-2 drop-shadow-lg">
               {promo}
             </h2>
-            
+            <p className="text-sm md:text-base text-gray-200 mb-3 drop-shadow-md">
+              Aventura, ação e mistérios antigos com Lara Croft no seu auge.
+            </p>
             <div className="flex flex-col md:flex-row justify-center items-center gap-4">
               <span className="text-lg font-semibold">{price}</span>
-             </div>
-
-              <button className="bg-pink-600 hover:bg-pink-700 px-4 py-2 rounded font-semibold shadow-md absolute bottom-4 left-4 bg-pink-600 hover:bg-pink-700 px-4 py-2 rounded font-semibold shadow-md">
+              <button className="bg-pink-600 hover:bg-pink-700 px-4 py-2 rounded font-semibold shadow-md">
                 Comprar Agora
               </button>
-
-
-              
-
-
-
-            
+            </div>
           </div>
         </div>
       </div>

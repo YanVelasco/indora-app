@@ -12,11 +12,8 @@ export default function SlideOfertas({ image, gif1, gif2, title, promo, price })
         
         {/* Texto sobreposto */}
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center rounded-md">
-          <div className="text-center text-white px-4">
-            <h2 className="text-2xl md:text-3xl font-extrabold mb-2 drop-shadow-lg">
-              {promo}
-            </h2>
-            
+
+        
             <div className="flex flex-col md:flex-row justify-center items-center gap-4">
               <span className="text-lg font-semibold">{price}</span>
              </div>
@@ -31,7 +28,7 @@ export default function SlideOfertas({ image, gif1, gif2, title, promo, price })
 
 
             
-          </div>
+          
         </div>
       </div>
 

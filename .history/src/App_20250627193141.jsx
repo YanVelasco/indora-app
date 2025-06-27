@@ -15,8 +15,7 @@ import Politicas from './components/politics/Politicas';
 import Dora from './components/dora/Dora';
 import DoraFloat from './components/dora/DoraFloat';
 import Ofertas from './components/ofertas/Ofertas';
-
-
+import Ofertas from './components/ofertas/CardOfertas';
 
 
 function App() {

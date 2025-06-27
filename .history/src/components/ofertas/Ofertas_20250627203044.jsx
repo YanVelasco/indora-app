@@ -1,21 +1,6 @@
 import CarrosselOfertas from "../../components/ofertas/CarrosselOfertas";
 {/* import RainWorldCard from "../../components/ofertas/Carrosel"; */}
 
-import HollowKnight from "../../assets/images/ofertas/HollowKnight (1).jfif";
-import DeadCells from "../../assets/images/ofertas/DeadCells.webp";
-import EldenRing from "../../assets/images/ofertas/Elden Ring.jpg";
-import GodofWar from "../../assets/images/ofertas/God of War Ragnarok.jpg";
-import GhostofTsushima from "../../assets/images/ofertas/ghost-of-tsushima.jpg";
-import UNCHARTED from "../../assets/images/ofertas/UNCHARTED.jpg";
-import HogwartsLegacy from "../../assets/images/ofertas/HogwartsLegacy.jpg";
-import HorizonForbidden from "../../assets/images/ofertas/Horizon Forbidden West.jpg";
-import ResidentEvil  from "../../assets/images/ofertas/ResidentEvil.jfif";
-import NineSols from "../../assets/images/ofertas/Nine Sols.jpeg";
-import Gestalt from "../../assets/images/ofertas/Gestalt Steam & Cinder.jpg";
-import Gris from "../../assets/images/ofertas/images.webp";
-
-
-
 import promoVideo from "../../assets/videos/MulletMadJackVideo.mp4";
 import promoImage from "../../assets/images/ofertas/Mullet-Mad-Jack_WW.jpg";
 
@@ -23,6 +8,22 @@ import promoImage from "../../assets/images/ofertas/Mullet-Mad-Jack_WW.jpg";
 import { CardOfertas } from "../../components/ofertas/CardOfertas";
 
 
+import HollowKnight from "../../assets/images/ofertas/";
+import DeadCells from "../../assets/images/ofertas/";
+import EldenRing from "../../assets/images/ofertas/";
+import GodofWar from "../../assets/images/ofertas/";
+import GhostofTsushima from "../../assets/images/ofertas/";
+import UNCHARTED from "../../assets/images/ofertas/";
+import HogwartsLegacy from "../../assets/images/ofertas/HogwartsLegacy.jpg";
+import HorizonForbidden from "../../assets/images/ofertas/";
+import ResidentEvil  from "../../assets/images/ofertas/";
+import NineSols from "../../assets/images/ofertas/";
+import Gestalt from "../../assets/images/ofertas/";
+import Gris from "../../assets/images/ofertas/";
+
+
+
+src/assets/images/ofertas/
 
 const jogosEmOferta = [
   {

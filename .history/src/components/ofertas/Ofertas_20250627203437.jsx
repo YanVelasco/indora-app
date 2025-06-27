@@ -1,6 +1,13 @@
 import CarrosselOfertas from "../../components/ofertas/CarrosselOfertas";
 {/* import RainWorldCard from "../../components/ofertas/Carrosel"; */}
 
+import promoVideo from "../../assets/videos/MulletMadJackVideo.mp4";
+import promoImage from "../../assets/images/ofertas/Mullet-Mad-Jack_WW.jpg";
+
+
+import { CardOfertas } from "../../components/ofertas/CardOfertas";
+
+
 import HollowKnight from "../../assets/images/ofertas/HollowKnight (1).jfif";
 import DeadCells from "../../assets/images/ofertas/DeadCells.webp";
 import EldenRing from "../../assets/images/ofertas/Elden Ring.jpg";
@@ -10,17 +17,10 @@ import UNCHARTED from "../../assets/images/ofertas/UNCHARTED.jpg";
 import HogwartsLegacy from "../../assets/images/ofertas/HogwartsLegacy.jpg";
 import HorizonForbidden from "../../assets/images/ofertas/Horizon Forbidden West.jpg";
 import ResidentEvil  from "../../assets/images/ofertas/ResidentEvil.jfif";
-import NineSols from "../../assets/images/ofertas/Nine Sols.jpeg";
+import NineSols from "../../assets/images/ofertas/NineSols.jpeg";
 import Gestalt from "../../assets/images/ofertas/Gestalt Steam & Cinder.jpg";
 import Gris from "../../assets/images/ofertas/images.webp";
 
-
-
-import promoVideo from "../../assets/videos/MulletMadJackVideo.mp4";
-import promoImage from "../../assets/images/ofertas/Mullet-Mad-Jack_WW.jpg";
-
-
-import { CardOfertas } from "../../components/ofertas/CardOfertas";
 
 
 

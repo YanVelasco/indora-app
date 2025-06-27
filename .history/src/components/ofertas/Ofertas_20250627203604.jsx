@@ -10,7 +10,7 @@ import UNCHARTED from "../../assets/images/ofertas/UNCHARTED.jpg";
 import HogwartsLegacy from "../../assets/images/ofertas/HogwartsLegacy.jpg";
 import HorizonForbidden from "../../assets/images/ofertas/Horizon Forbidden West.jpg";
 import ResidentEvil  from "../../assets/images/ofertas/ResidentEvil.jfif";
-import NineSols from "../../assets/images/ofertas/Nine Sols.jpeg";
+import NineSols from "../../assets/images/ofertas/NineSols.jpeg";
 import Gestalt from "../../assets/images/ofertas/Gestalt Steam & Cinder.jpg";
 import Gris from "../../assets/images/ofertas/images.webp";
 
@@ -21,6 +21,10 @@ import promoImage from "../../assets/images/ofertas/Mullet-Mad-Jack_WW.jpg";
 
 
 import { CardOfertas } from "../../components/ofertas/CardOfertas";
+
+
+
+
 
 
 

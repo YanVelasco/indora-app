@@ -9,7 +9,7 @@ import VLibras from "./components/vlibras/VLibras";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import ContatoForm from "./components/contact/ContatoForm";
-
+<<<<<<< HEAD
 import Termos from './components/terms/Terms';
 import Politicas from './components/politics/Politicas';
 import Dora from './components/dora/Dora';
@@ -18,6 +18,13 @@ import Ofertas from './components/ofertas/Ofertas';
 
 
 
+
+=======
+import Termos from "./components/terms/Terms";
+import Politicas from "./components/politics/Politicas";
+import Dora from "./components/dora/Dora";
+import DoraFloat from "./components/dora/DoraFloat";
+>>>>>>> 7773c7afc78a75a21c5ba40a1886aed3ae9a4404
 
 function App() {
   return (

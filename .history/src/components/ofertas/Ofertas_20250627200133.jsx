@@ -1,20 +1,5 @@
 import CarrosselOfertas from "../../components/ofertas/CarrosselOfertas";
-{/* import RainWorldCard from "../../components/ofertas/Carrosel"; */}
-
-import HollowKnight from "../../assets/images/ofertas/HollowKnight (1).jfif";
-import DeadCells from "../../assets/images/ofertas/DeadCells.webp";
-import EldenRing from "../../assets/images/ofertas/Elden Ring.jpg";
-import GodofWar from "../../assets/images/ofertas/God of War Ragnarok.jpg";
-import GhostofTsushima from "../../assets/images/ofertas/ghost-of-tsushima.jpg";
-import UNCHARTED from "../../assets/images/ofertas/UNCHARTED.jpg";
-import HogwartsLegacy from "../../assets/images/ofertas/HogwartsLegacy.jpg";
-import HorizonForbidden from "../../assets/images/ofertas/Horizon Forbidden West.jpg";
-import ResidentEvil  from "../../assets/images/ofertas/ResidentEvil.jfif";
-import NineSols from "../../assets/images/ofertas/Nine Sols.jpeg";
-import Gestalt from "../../assets/images/ofertas/Gestalt Steam & Cinder.jpg";
-import Gris from "../../assets/images/ofertas/images.webp";
-
-
+import RainWorldCard from "../../components/ofertas/Carrosel"; 
 
 import promoVideo from "../../assets/videos/MulletMadJackVideo.mp4";
 import promoImage from "../../assets/images/ofertas/Mullet-Mad-Jack_WW.jpg";
@@ -23,10 +8,9 @@ import promoImage from "../../assets/images/ofertas/Mullet-Mad-Jack_WW.jpg";
 import { CardOfertas } from "../../components/ofertas/CardOfertas";
 
 
-
 const jogosEmOferta = [
   {
-    img: HollowKnight,
+    img: "https://via.placeholder.com/400x200",
     title: "Hollow Knight",
     desc: "Explore um reino subterrâneo cheio de segredos.",
     desconto: "-40%",
@@ -34,7 +18,7 @@ const jogosEmOferta = [
     final: "R$ 47,94"
   },
   {
-    img: DeadCells,
+    img: "https://via.placeholder.com/400x200",
     title: "Dead Cells",
     desc: "Combate frenético e recomeços constantes.",
     desconto: "-35%",
@@ -42,7 +26,7 @@ const jogosEmOferta = [
     final: "R$ 38,93"
   },
   {
-    img: Gris,
+    img: "https://via.placeholder.com/400x200",
     title: "Gris",
     desc: "Uma jornada emocional com arte deslumbrante.",
     desconto: "-25%",
@@ -50,15 +34,15 @@ const jogosEmOferta = [
     final: "R$ 37,42"
   },
     {
-    img: EldenRing,
-    title: "Elden Ring",
+    img: "https://via.placeholder.com/400x200",
+    title: "Elden Ringt",
     desc: "Exploração e combates majestosos.",
     desconto: "-40%",
     preco: "R$ 79,90",
     final: "R$ 47,94"
   },
   {
-    img: GodofWar,
+    img: "https://via.placeholder.com/400x200",
     title: "God of War",
     desc: "Mitologia épica e combate visceral.",
     desconto: "-35%",
@@ -66,7 +50,7 @@ const jogosEmOferta = [
     final: "R$ 38,93"
   },
   {
-    img: GhostofTsushima,
+    img: "https://via.placeholder.com/400x200",
     title: "Ghost of Tsushima",
     desc: "Combate samurai emocionante.",
     desconto: "-25%",
@@ -77,49 +61,49 @@ const jogosEmOferta = [
 
 const jogosEmOferta2 = [
   {
-    img: UNCHARTED,
-    title: "UNCHARTED™",
-    desc: "Aventura cheia de reviravoltas.",
+    img: "https://via.placeholder.com/400x200",
+    title: "Hollow Knight",
+    desc: "Explore um reino subterrâneo cheio de segredos.",
     desconto: "-40%",
     preco: "R$ 79,90",
     final: "R$ 47,94"
   },
   {
-    img: HogwartsLegacy,
-    title: "Hogwarts Legacy",
-    desc: "Magia e aventura no mundo bruxo.",
+    img: "https://via.placeholder.com/400x200",
+    title: "Dead Cells",
+    desc: "Combate frenético e recomeços constantes.",
     desconto: "-35%",
     preco: "R$ 59,90",
     final: "R$ 38,93"
   },
   {
-    img: HorizonForbidden,
-    title: "Horizon Forbidden West",
+    img: "https://via.placeholder.com/400x200",
+    title: "Gris",
     desc: "Uma jornada emocional com arte deslumbrante.",
     desconto: "-25%",
     preco: "R$ 49,90",
     final: "R$ 37,42"
   },
     {
-    img: ResidentEvil,
-    title: "Resident Evil 4",
-    desc: "ETerror intenso cheio de suspense.",
+    img: "https://via.placeholder.com/400x200",
+    title: "Hollow Knight",
+    desc: "Explore um reino subterrâneo cheio de segredos.",
     desconto: "-40%",
     preco: "R$ 79,90",
     final: "R$ 47,94"
   },
   {
-    img: NineSols,
-    title: "Nine Sols",
-    desc: "Ação e aventura com uma estética única.",
+    img: "https://via.placeholder.com/400x200",
+    title: "Dead Cells",
+    desc: "Combate frenético e recomeços constantes.",
     desconto: "-35%",
     preco: "R$ 59,90",
     final: "R$ 38,93"
   },
   {
-    img: Gestalt,
-    title: "Gestalt",
-    desc: "Um RPG com visual steampunk e narrativa envolvente.",
+    img: "https://via.placeholder.com/400x200",
+    title: "Gris",
+    desc: "Uma jornada emocional com arte deslumbrante.",
     desconto: "-25%",
     preco: "R$ 49,90",
     final: "R$ 37,42"

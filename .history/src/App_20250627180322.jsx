@@ -17,8 +17,6 @@ import DoraFloat from './components/dora/DoraFloat';
 import Ofertas from './components/ofertas/Ofertas';
 
 
-
-
 function App() {
   return (
     <div className="bg-black min-h-screen text-white pt-34">
