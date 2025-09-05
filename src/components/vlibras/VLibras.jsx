@@ -2,43 +2,44 @@ import { useEffect } from "react";
 
 const VLibras = () => {
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://vlibras.gov.br/app/vlibras-plugin.js";
-    script.async = true;
+    // Se já existe container, não recria
+    if (!document.querySelector("[vw]")) {
+      const container = document.createElement("div");
+      container.setAttribute("vw", "");
+      container.className = "enabled fixed bottom-8 right-8 z-50";
 
-    script.onload = () => {
-      console.log("✅ Script VLibras carregado com sucesso");
+      container.innerHTML = `
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+          <div class="vw-plugin-top-wrapper"></div>
+        </div>
+      `;
 
-      setTimeout(() => {
-        if (window.VLibras) {
-          console.log("✅ VLibras disponível, inicializando widget...");
-          new window.VLibras.Widget("https://vlibras.gov.br/app");
-        } else {
-          console.warn(
-            "⚠️ VLibras ainda não está disponível após o carregamento."
+      document.body.appendChild(container);
+    }
+
+    // Se script ainda não foi carregado
+    if (!document.getElementById("vlibras-script")) {
+      const script = document.createElement("script");
+      script.id = "vlibras-script";
+      script.src = "https://vlibras.gov.br/app/vlibras-plugin.js";
+      script.async = true;
+
+      script.onload = () => {
+        if (window.VLibras && !window.__vlibras_widget__) {
+          window.__vlibras_widget__ = new window.VLibras.Widget(
+            "https://vlibras.gov.br/app"
           );
         }
-      }, 100);
-    };
+      };
 
-    script.onerror = () => {
-      console.error("❌ Falha ao carregar o script VLibras.");
-    };
+      document.body.appendChild(script);
+    }
 
-    document.body.appendChild(script);
+    // não faz cleanup: mantém o VLibras ativo mesmo em refresh/navegação
   }, []);
 
-  return (
-    <div data-vw className="enabled fixed bottom-6 right-6 z-[2147483647]">
-      <div
-        data-vw-access-button
-        className="active w-12 h-12 bg-blue-600 rounded-full shadow-lg cursor-pointer"
-      ></div>
-      <div data-vw-plugin-wrapper>
-        <div className="vw-plugin-top-wrapper"></div>
-      </div>
-    </div>
-  );
+  return null;
 };
 
 export default VLibras;

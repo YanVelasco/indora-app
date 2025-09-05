@@ -24,7 +24,7 @@ function App() {
     <div className="bg-black min-h-screen text-white pt-34">
       <Router>
         <NavBar />
-        {/* <VLibras /> */}
+        <VLibras />
         <DoraFloat />
         <Routes>
           <Route path="/" element={<Home />} />
