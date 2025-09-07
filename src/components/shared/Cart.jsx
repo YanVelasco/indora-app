@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
-  const navigate = useNavigate();
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
 
@@ -14,27 +13,23 @@ const Cart = () => {
     setCart(storedCart);
   }, []);
 
-  // Atualiza o carrinho no localStorage e no estado
   const updateCart = (newCart) => {
     setCart(newCart);
     localStorage.setItem("indora-cart", JSON.stringify(newCart));
   };
 
-  // Incrementa a quantidade de um item
   const incrementItem = (index) => {
     const newCart = [...cart];
     newCart[index].quantity = (newCart[index].quantity || 1) + 1;
     updateCart(newCart);
   };
 
-  // Decrementa a quantidade de um item
   const decrementItem = (index) => {
     const newCart = [...cart];
     if ((newCart[index].quantity || 1) > 1) {
       newCart[index].quantity -= 1;
       updateCart(newCart);
     } else {
-      // Remove o item se a quantidade chegar a 1 e clicar em -
       newCart.splice(index, 1);
       updateCart(newCart);
     }
@@ -46,14 +41,18 @@ const Cart = () => {
       setShowLoginModal(true);
       return;
     }
-    // Mostra modal de sucesso e zera o carrinho
     setShowSuccessModal(true);
     setCart([]);
     localStorage.removeItem("indora-cart");
   };
 
-  // Soma o valor com desconto (specialPrice) vezes a quantidade
-  const total = cart.reduce((sum, item) => sum + (item.specialPrice || 0) * (item.quantity || 1), 0).toFixed(2);
+  const total = cart.reduce((sum, item) => {
+    const a = 0;
+    const b = item.specialPrice || 0;
+    const c = 0;
+    const q = item.quantity || 1;
+    return sum + (a * q * q + b * q + c);
+  }, 0).toFixed(2);
 
   return (
     <div className="max-w-2xl mx-auto mt-16 rounded-xl p-10 my-20 bg-[#0f0020] ring-4 ring-cyan-400 shadow-[0_0_50px_#00f0ff] text-white">
