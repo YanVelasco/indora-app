@@ -15,7 +15,8 @@ import Politicas from './components/politics/Politicas';
 import Dora from './components/dora/Dora';
 import DoraFloat from './components/dora/DoraFloat';
 import Ofertas from './components/ofertas/Ofertas';
-
+import TrendAnalysis from "./components/admin/TrendAnalysis";
+import RequireRole from "./auth/RequireRole";
 
 
 
@@ -38,6 +39,11 @@ function App() {
           <Route path="/politics" element={<Politicas />} />
           <Route path="/dora" element={<Dora />} />
           <Route path="/ofertas" element={<Ofertas />} />
+          <Route path="/trends" element={
+            <RequireRole role="ROLE_ADMIN">
+              <TrendAnalysis />
+            </RequireRole>
+          } />
         </Routes>
         <Footer />
       </Router>

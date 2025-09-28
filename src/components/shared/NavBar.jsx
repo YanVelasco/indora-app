@@ -8,7 +8,7 @@ import { IoIosMenu } from "react-icons/io";
 import { Badge } from "@mui/material";
 import { useState } from "react";
 import { useEffect } from "react";
-import { isAuthenticated } from "../../auth/auth";
+import { isAuthenticated, getUserRoles } from "../../auth/auth";
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -16,11 +16,13 @@ const NavBar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(isAuthenticated());
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
+  const [roles, setRoles] = useState([]);
 
   // Checa se existe o cookie de autenticação (jwtCookie) usando utilitário
   useEffect(() => {
     function checkAuth() {
       setIsLoggedIn(isAuthenticated());
+      setRoles(getUserRoles());
     }
     function updateCartCount() {
       const cart = JSON.parse(localStorage.getItem("indora-cart")) || [];
@@ -44,6 +46,11 @@ const NavBar = () => {
       clearInterval(interval);
     };
   }, []);
+
+  // Debug: mostrar roles no console
+  useEffect(() => {
+    console.log('Roles do usuário:', roles);
+  }, [roles]);
 
   useEffect(() => {
     const scripts = [
@@ -163,6 +170,13 @@ const NavBar = () => {
               Carrinho <span id="cart-counter">{cartCount}</span>
             </Link>
           </li>
+          {isLoggedIn && roles.includes("ROLE_ADMIN") && (
+            <li>
+              <Link to="/trends" className="hover:underline">
+                Análise de Tendências
+              </Link>
+            </li>
+          )}
           {!isLoggedIn ? (
             <li>
               <Link
