@@ -159,11 +159,13 @@ const NavBar = () => {
               Ofertas do dia
             </Link>
           </li>
-          <li>
-            <Link to="/signup" className="hover:underline">
-              Cadastro
-            </Link>
-          </li>
+          {!isLoggedIn && (
+            <li>
+              <Link to="/signup" className="hover:underline">
+                Cadastro
+              </Link>
+            </li>
+          )}
           <li className="flex items-center gap-1">
             <Link to="/shared" className="flex items-center gap-1">
               <FaShoppingCart />
