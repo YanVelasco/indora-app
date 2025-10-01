@@ -18,7 +18,7 @@ import Ofertas from './components/ofertas/Ofertas';
 import TrendAnalysis from "./components/admin/TrendAnalysis";
 import RequireRole from "./auth/RequireRole";
 
-
+import ScrollToTopButton from "./components/shared/ScrollToTopButton";
 
 function App() {
   return (
@@ -45,6 +45,7 @@ function App() {
             </RequireRole>
           } />
         </Routes>
+        <ScrollToTopButton />
         <Footer />
       </Router>
     </div>

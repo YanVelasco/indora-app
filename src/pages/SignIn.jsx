@@ -8,6 +8,11 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+
+    // const handleSocialLogin = (provider) => {
+    //   window.location.href = `/api/auth/${provider}`;
+    // };
+
     e.preventDefault();
     setError("");
     try {
@@ -74,6 +79,37 @@ const SignIn = () => {
         >
           Entrar
         </button>
+        
+        <div className="mt-6 space-y-4">
+          <button
+            type="button"
+            onClick={() => window.open("https://accounts.google.com/", "_blank")}
+            className="w-full py-3 bg-white text-black font-bold rounded-lg shadow-md hover:bg-gray-400 transition-all duration-200"
+          >
+            Entrar com Google
+          </button>
+
+          <button
+            type="button"
+            onClick={() => window.open("https://www.facebook.com/login/", "_blank")}
+            className="w-full py-3 bg-[#3b5998] text-white font-bold rounded-lg shadow-md hover:bg-[#2d4373] transition-all duration-200"
+          >
+            Entrar com Facebook
+          </button>
+
+          {/* <button
+            type="button"
+            onClick={() => handleSocialLogin("github")}
+            className="w-full py-3 bg-black text-white font-bold rounded-lg shadow-md hover:bg-gray-800 transition-all duration-200"
+            
+            onClick={() => window.open("https://github.com/login", "_blank")}
+            className="w-full py-3 bg-black text-white font-bold rounded-lg shadow-md hover:bg-gray-800 transition-all duration-200"
+
+          >
+            Entrar com GitHub
+          </button> */}
+        </div>
+
         <div className="mt-6 text-center">
           <span className="text-[#00fff7]">Não tem uma conta? </span>
           <a href="/signup" className="text-[#ff00ea] hover:underline font-bold">Cadastre-se</a>
